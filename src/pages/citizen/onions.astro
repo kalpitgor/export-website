@@ -1,0 +1,169 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+
+const varieties = [
+  {
+    type: 'White Onion',
+    color: 'from-amber-50 to-yellow-50',
+    description: 'Mild, sweet flavour profile. Preferred for soups, snacks and seasoning blends.',
+    cuts: ['Flakes', 'Kibbled (15–35mm)', 'Chopped', 'Minced', 'Granules', 'Powder'],
+  },
+  {
+    type: 'Red Onion',
+    color: 'from-rose-50 to-pink-50',
+    description: 'Rich colour, pungent aroma. Ideal for flavour-forward applications.',
+    cuts: ['Slices', 'Kibbled (15–35mm)', 'Chopped', 'Minced', 'Granules', 'Powder'],
+  },
+  {
+    type: 'Pink Onion',
+    color: 'from-pink-50 to-rose-50',
+    description: 'Delicate balance of sweetness and bite. High-value export variety.',
+    cuts: ['Slices', 'Kibbled (15–35mm)', 'Chopped', 'Minced', 'Granules', 'Powder'],
+  },
+  {
+    type: 'Toasted Onion',
+    color: 'from-orange-50 to-amber-50',
+    description: 'Deep caramelized notes. Perfect for instant noodles, snacks and ready meals.',
+    cuts: ['Flakes', 'Large Chopped', 'Chopped', 'Minced', 'Granules', 'Powder'],
+  },
+];
+
+const specs = [
+  { label: 'Moisture', value: '≤5%' },
+  { label: 'Color', value: 'Natural / Characteristic' },
+  { label: 'Shelf Life', value: '24 months' },
+  { label: 'Packaging', value: 'HDPE bags, cartons, drums' },
+  { label: 'Compliance', value: 'FSSAI, FDA, HACCP' },
+  { label: 'Min. Order', value: '1 MT' },
+];
+---
+
+<Layout
+  title="Dehydrated Onion Products — Citizen Foods"
+  description="White, Red, Pink & Toasted dehydrated onions in all cut sizes. Export-grade quality from Citizen Foods, India."
+>
+  <!-- HERO -->
+  <section class="relative min-h-[50vh] flex items-center overflow-hidden bg-brand-dark">
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-dark to-brand-dark/60"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
+      <nav class="flex items-center gap-2 text-white/40 text-xs font-body mb-6">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span>/</span>
+        <a href="/citizen" class="hover:text-white transition-colors">Citizen Foods</a>
+        <span>/</span>
+        <span class="text-white/70">Dehydrated Onions</span>
+      </nav>
+      <div class="animate-fade-up inline-flex items-center gap-2 bg-brand-primary/20 border border-brand-primary/40 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
+        Citizen Foods
+      </div>
+      <h1 class="animate-fade-up animate-fade-up-delay-1 font-display font-bold text-white text-4xl sm:text-5xl lg:text-6xl max-w-2xl leading-tight mb-4">
+        Dehydrated Onion Products
+      </h1>
+      <p class="animate-fade-up animate-fade-up-delay-2 font-body text-white/70 text-base sm:text-lg max-w-xl leading-relaxed mb-8">
+        White, Red, Pink & Toasted onions in all cut sizes. Precision-dried for consistent colour, aroma and moisture across every export shipment.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#inquiry" class="inline-flex items-center gap-2 bg-brand-primary hover:bg-amber-600 text-white font-body font-semibold text-sm px-7 py-3.5 rounded-full transition-all hover:scale-105">
+          Request Sample / Quote
+        </a>
+        <a href="/citizen" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-body font-medium text-sm px-7 py-3.5 rounded-full transition-all">
+          ← Back to Catalogue
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT SPECS STRIP -->
+  <section class="bg-brand-primary/10 border-y border-brand-primary/20 py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        {specs.map(s => (
+          <div class="text-center">
+            <div class="font-display font-bold text-brand-dark text-base">{s.value}</div>
+            <div class="font-body text-brand-muted text-xs mt-0.5">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- VARIETIES -->
+  <section class="py-20 bg-brand-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl mb-3">4 Varieties. 6 Cut Sizes Each.</h2>
+        <p class="font-body text-brand-muted text-base max-w-xl mx-auto">Every variety available in the cuts your buyers need.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {varieties.map(v => (
+          <div class={`bg-gradient-to-br ${v.color} border border-stone-200 rounded-2xl p-7 hover:shadow-md transition-all`}>
+            <h3 class="font-display font-bold text-brand-dark text-xl mb-2">{v.type}</h3>
+            <p class="font-body text-brand-muted text-sm mb-4 leading-relaxed">{v.description}</p>
+            <div class="flex flex-wrap gap-2">
+              {v.cuts.map(cut => (
+                <span class="bg-white/70 text-brand-dark text-xs font-body font-medium px-3 py-1.5 rounded-full border border-white/80 shadow-sm">{cut}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL TABLE -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display font-bold text-brand-dark text-2xl sm:text-3xl mb-8 text-center">Full Product Matrix</h2>
+      <div class="overflow-x-auto rounded-2xl border border-stone-200 shadow-sm">
+        <table class="w-full font-body text-sm">
+          <thead>
+            <tr class="bg-brand-dark text-white">
+              <th class="text-left px-5 py-4 font-semibold text-xs uppercase tracking-wider">Variety</th>
+              {['Flakes / Slices', 'Kibbled (15–35mm)', 'Chopped / Large Chopped', 'Minced', 'Granules', 'Powder'].map(col => (
+                <th class="text-center px-3 py-4 font-semibold text-xs uppercase tracking-wider">{col}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { t: 'White Onion', v: [true, true, true, true, true, true] },
+              { t: 'Red Onion', v: [true, true, true, true, true, true] },
+              { t: 'Pink Onion', v: [true, true, true, true, true, true] },
+              { t: 'Toasted Onion', v: [true, true, true, true, true, true] },
+            ].map((row, i) => (
+              <tr class={i % 2 === 0 ? 'bg-white' : 'bg-stone-50'}>
+                <td class="px-5 py-4 font-semibold text-brand-dark">{row.t}</td>
+                {row.v.map(has => (
+                  <td class="text-center px-3 py-4">
+                    {has ? (
+                      <svg class="w-4 h-4 text-green-500 mx-auto" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                      </svg>
+                    ) : (
+                      <span class="text-stone-300">—</span>
+                    )}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- INQUIRY FORM -->
+  <section id="inquiry" class="py-20 bg-brand-light">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl mb-3">Request a Sample or Quote</h2>
+        <p class="font-body text-brand-muted text-base">We respond to all export inquiries within 24 hours.</p>
+      </div>
+      <div class="bg-white rounded-3xl shadow-sm border border-stone-100 p-8 lg:p-10">
+        <InquiryForm brand="citizen" />
+      </div>
+    </div>
+  </section>
+</Layout>

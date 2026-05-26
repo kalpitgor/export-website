@@ -1,0 +1,118 @@
+---
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Citizen Foods', href: '/citizen' },
+  { label: 'Top Class', href: '/topclass' },
+  { label: 'About', href: '/citizen/about' },
+];
+const currentPath = Astro.url.pathname;
+---
+
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" data-header>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 lg:h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 group">
+        <div class="w-8 h-8 bg-brand-primary rounded-md flex items-center justify-center">
+          <span class="text-white font-display font-bold text-sm">C</span>
+        </div>
+        <span class="font-display font-bold text-white text-lg leading-tight">
+          Citizen <span class="text-brand-primary">×</span> <span class="text-brand-primary">TOPCLASS</span>
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class={`text-sm font-body font-medium transition-colors ${
+              currentPath === link.href
+                ? 'text-brand-primary'
+                : 'text-white/80 hover:text-white'
+            }`}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- CTA + Hamburger -->
+      <div class="flex items-center gap-3">
+        <a
+          href="/citizen/contact"
+          class="hidden md:inline-flex items-center gap-2 bg-brand-primary hover:bg-amber-600 text-white text-sm font-body font-semibold px-5 py-2.5 rounded-full transition-all hover:scale-105 active:scale-95"
+        >
+          Get Quote
+        </a>
+
+        <!-- Hamburger -->
+        <button
+          id="mobile-menu-btn"
+          aria-label="Toggle menu"
+          class="md:hidden flex flex-col gap-1.5 p-2 rounded-md hover:bg-white/10 transition-colors"
+        >
+          <span class="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+          <span class="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+          <span class="hamburger-line block w-4 h-0.5 bg-white transition-all duration-300"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div
+    id="mobile-menu"
+    class="md:hidden max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-brand-dark/95 backdrop-blur-sm"
+  >
+    <nav class="flex flex-col gap-1 px-4 py-4 border-t border-white/10">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class="flex items-center px-4 py-3 rounded-xl text-white/80 hover:text-white hover:bg-white/10 font-body font-medium transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="/citizen/contact"
+        class="mt-2 flex items-center justify-center bg-brand-primary hover:bg-amber-600 text-white font-body font-semibold py-3 px-6 rounded-xl transition-colors"
+      >
+        Get Quote
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector('[data-header]') as HTMLElement;
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const lines = document.querySelectorAll('.hamburger-line');
+  let menuOpen = false;
+
+  // Scroll backdrop
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      header.classList.add('bg-brand-dark/95', 'backdrop-blur-md', 'shadow-xl');
+    } else {
+      header.classList.remove('bg-brand-dark/95', 'backdrop-blur-md', 'shadow-xl');
+    }
+  });
+
+  // Mobile menu toggle
+  btn?.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    if (menuOpen) {
+      menu!.style.maxHeight = menu!.scrollHeight + 'px';
+      lines[0].classList.add('rotate-45', 'translate-y-2');
+      lines[1].classList.add('opacity-0');
+      lines[2].classList.add('-rotate-45', '-translate-y-2', '!w-6');
+    } else {
+      menu!.style.maxHeight = '0';
+      lines[0].classList.remove('rotate-45', 'translate-y-2');
+      lines[1].classList.remove('opacity-0');
+      lines[2].classList.remove('-rotate-45', '-translate-y-2', '!w-6');
+    }
+  });
+</script>

@@ -1,0 +1,176 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StatCounter from '../../components/StatCounter.astro';
+import CertBadge from '../../components/CertBadge.astro';
+
+const pillars = [
+  {
+    title: 'Authentic Recipes',
+    desc: 'Classic Indian flavour profiles developed by expert food technologists and tested with commercial kitchens.',
+    icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253',
+  },
+  {
+    title: 'Modern Processing',
+    desc: 'Automated blending, filling and sealing lines with stringent hygiene controls and CIP systems.',
+    icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z',
+  },
+  {
+    title: 'Quality at Scale',
+    desc: 'Each batch undergoes sensory, microbiological and chemical testing before dispatch. Consistency is non-negotiable.',
+    icon: 'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
+  },
+  {
+    title: 'Flexible Packaging',
+    desc: 'From retail sachets to 5L bulk packs and 25kg seasoning drums — we package to your spec and label requirements.',
+    icon: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4',
+  },
+];
+---
+
+<Layout
+  title="About Top Class — Sauces, Pastes & Masalas Brand"
+  description="Top Class is the ready-to-use sauces, pastes and masalas division. Bold flavours engineered for HoReCa, retail and food manufacturing."
+>
+  <!-- HERO -->
+  <section class="relative min-h-[60vh] flex items-center overflow-hidden bg-brand-dark">
+    <div class="absolute inset-0">
+      <img
+        src="https://brandbridge-exports.lovable.app/assets/topclass-hero-C3wKyO_l.jpg"
+        alt="Top Class products"
+        class="w-full h-full object-cover opacity-25"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/80 to-brand-dark/40"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
+      <nav class="flex items-center gap-2 text-white/40 text-xs font-body mb-6">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span>/</span>
+        <a href="/topclass" class="hover:text-white transition-colors">Top Class</a>
+        <span>/</span>
+        <span class="text-white/70">About</span>
+      </nav>
+      <div class="animate-fade-up inline-flex items-center gap-2 bg-brand-primary/20 border border-brand-primary/40 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
+        About Top Class
+      </div>
+      <h1 class="animate-fade-up animate-fade-up-delay-1 font-display font-bold text-white text-4xl sm:text-5xl lg:text-6xl max-w-2xl leading-tight mb-4">
+        Bold flavour. Built to scale.
+      </h1>
+      <p class="animate-fade-up animate-fade-up-delay-2 font-body text-white/70 text-base sm:text-lg max-w-2xl leading-relaxed">
+        Top Class is the ready-to-use sauces, pastes, masalas and seasonings division — created for food manufacturers, HoReCa operators and retail brands that demand authentic Indian flavour with industrial-grade consistency.
+      </p>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="bg-brand-dark py-16 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <StatCounter value="30+" label="Export Countries" />
+        <StatCounter value="12+" label="Product SKUs" />
+        <StatCounter value="6" label="Pack Size Options" />
+        <StatCounter value="24" label="Hour Response Time" />
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="relative">
+          <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center">
+            <img
+              src="https://brandbridge-exports.lovable.app/assets/topclass-hero-C3wKyO_l.jpg"
+              alt="Top Class products"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="absolute -bottom-4 -left-4 bg-brand-primary text-white px-5 py-3 rounded-2xl shadow-lg">
+            <p class="font-display font-bold text-2xl">12+</p>
+            <p class="font-body text-xs font-medium text-white/80">Ready-to-use SKUs</p>
+          </div>
+        </div>
+        <div>
+          <div class="inline-flex items-center gap-2 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest mb-4">
+            <span class="w-8 h-px bg-brand-primary"></span>
+            Our Brand Story
+          </div>
+          <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl mb-6 leading-tight">
+            India's flavour. Your kitchen's advantage.
+          </h2>
+          <div class="space-y-4 font-body text-brand-muted text-base leading-relaxed">
+            <p>
+              Top Class was born from a simple insight: great Indian flavour shouldn't require hours in the kitchen. We created a range of sauces, pastes, masalas and seasonings that deliver restaurant-quality taste — at scale, reliably, every time.
+            </p>
+            <p>
+              Our manufacturing facility runs dedicated lines for sauces, pastes and dry seasoning blends. This separation ensures no cross-flavour contamination and allows precise batch management across product types.
+            </p>
+            <p>
+              From independent cloud kitchens to large QSR chains, our products are used by operators who need consistent flavour without the overhead of in-house preparation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="py-20 bg-brand-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl mb-3">How we deliver Top Class quality</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {pillars.map(p => (
+          <div class="bg-white rounded-2xl p-8 shadow-sm border border-stone-100 hover:shadow-md transition-all">
+            <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-brand-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d={p.icon}/>
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-brand-dark text-xl mb-2">{p.title}</h3>
+            <p class="font-body text-brand-muted text-sm leading-relaxed">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-bold text-brand-dark text-2xl sm:text-3xl">Certified for global trade</h2>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <CertBadge name="ISO 22000:2018" subtitle="Food Safety Mgmt." />
+        <CertBadge name="FSSAI" subtitle="India Food Safety" />
+        <CertBadge name="HACCP" subtitle="Hazard Analysis" />
+        <CertBadge name="APEDA" subtitle="Agricultural Export" />
+        <CertBadge name="FDA" subtitle="US Compliance" />
+        <CertBadge name="GMP" subtitle="Good Mfg. Practice" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-gradient-to-br from-brand-accent to-brand-primary text-white text-center">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mb-4">Source Top Class products today</h2>
+      <p class="font-body text-white/80 text-base mb-8">Samples, pricing and freight terms within 24 hours.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/topclass/contact" class="inline-flex items-center gap-2 bg-white hover:bg-amber-50 text-brand-primary font-body font-bold text-sm px-8 py-4 rounded-full transition-all hover:scale-105 shadow-xl">
+          Send Inquiry
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <a href="/topclass" class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 border border-white/30 text-white font-body font-semibold text-sm px-8 py-4 rounded-full transition-all hover:scale-105">
+          View Products
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,167 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+
+const masalas = [
+  {
+    name: 'Peri Peri Masala',
+    desc: 'Inspired by the iconic peri peri flavour. Bold heat with layers of garlic, lemon and spice notes. Ideal for seasoning fries, grilled chicken and snacks.',
+    heat: 4,
+    uses: ['Fries & Chips', 'Grilled Meats', 'Popcorn', 'Snack Coatings'],
+    color: 'from-red-50 to-rose-50',
+    border: 'border-red-100',
+  },
+  {
+    name: 'Chat Masala',
+    desc: 'The iconic tangy-spicy seasoning blend of Indian street food culture. Amchur, cumin, black salt and more — perfect for chaats, fruits and snacks.',
+    heat: 2,
+    uses: ['Chaat & Street Food', 'Fruits & Salads', 'Roasted Snacks', 'Beverages'],
+    color: 'from-amber-50 to-yellow-50',
+    border: 'border-amber-100',
+  },
+  {
+    name: 'Kurkure Masala',
+    desc: 'Proprietary spice blend formulated for extruded snack products. Balanced heat, tang and masala notes that coat evenly on puffed and extruded textures.',
+    heat: 3,
+    uses: ['Extruded Snacks', 'Puffed Rice', 'Corn Puffs', 'Coated Nuts'],
+    color: 'from-orange-50 to-amber-50',
+    border: 'border-orange-100',
+  },
+  {
+    name: 'Fryums Masala',
+    desc: 'Custom-blended seasoning specifically developed for fryums and fried snack coatings. Sticks evenly, delivers consistent flavour across large batches.',
+    heat: 2,
+    uses: ['Fryums', 'Fried Snacks', 'Papad Coatings', 'Namkeen Blends'],
+    color: 'from-yellow-50 to-orange-50',
+    border: 'border-yellow-100',
+  },
+];
+---
+
+<Layout
+  title="Masalas & Seasonings — Top Class"
+  description="Peri Peri Masala, Chat Masala, Kurkure Masala and Fryums Masala. Snack-grade seasoning blends from Top Class."
+>
+  <!-- HERO -->
+  <section class="relative min-h-[50vh] flex items-center overflow-hidden bg-brand-dark">
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-dark to-brand-dark/60"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
+      <nav class="flex items-center gap-2 text-white/40 text-xs font-body mb-6">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span>/</span>
+        <a href="/topclass" class="hover:text-white transition-colors">Top Class</a>
+        <span>/</span>
+        <span class="text-white/70">Masalas & Seasonings</span>
+      </nav>
+      <div class="animate-fade-up inline-flex items-center gap-2 bg-brand-primary/20 border border-brand-primary/40 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
+        Top Class
+      </div>
+      <h1 class="animate-fade-up animate-fade-up-delay-1 font-display font-bold text-white text-4xl sm:text-5xl lg:text-6xl max-w-2xl leading-tight mb-4">
+        Masalas & Seasonings
+      </h1>
+      <p class="animate-fade-up animate-fade-up-delay-2 font-body text-white/70 text-base sm:text-lg max-w-xl leading-relaxed mb-8">
+        Four signature snack-grade seasoning blends — engineered for consistent coating, bold flavour and batch-to-batch reliability.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#inquiry" class="inline-flex items-center gap-2 bg-brand-primary hover:bg-amber-600 text-white font-body font-semibold text-sm px-7 py-3.5 rounded-full transition-all hover:scale-105">
+          Request Sample / Quote
+        </a>
+        <a href="/topclass" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-body font-medium text-sm px-7 py-3.5 rounded-full transition-all">
+          ← Back to Catalogue
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="py-20 bg-brand-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl mb-3">4 Signature Masalas</h2>
+        <p class="font-body text-brand-muted text-base max-w-xl mx-auto">
+          Formulated for snack manufacturers, HoReCa and food service brands.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {masalas.map(m => (
+          <div class={`bg-gradient-to-br ${m.color} border ${m.border} rounded-3xl p-8 hover:shadow-lg transition-all`}>
+            <div class="flex items-start justify-between gap-4 mb-3">
+              <h3 class="font-display font-bold text-brand-dark text-xl">{m.name}</h3>
+              <div class="flex items-center gap-1 shrink-0" title={`Heat level: ${m.heat}/5`}>
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div class={`w-2 h-4 rounded-sm ${i < m.heat ? 'bg-brand-primary' : 'bg-stone-200'}`}></div>
+                ))}
+              </div>
+            </div>
+            <p class="font-body text-brand-muted text-sm leading-relaxed mb-5">{m.desc}</p>
+            <div>
+              <p class="font-body text-xs text-brand-muted font-semibold uppercase tracking-wider mb-2">Applications</p>
+              <div class="flex flex-wrap gap-2">
+                {m.uses.map(use => (
+                  <span class="bg-white/70 text-brand-dark text-xs font-body font-medium px-3 py-1.5 rounded-full border border-white shadow-sm">{use}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY MASALA -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-brand-dark rounded-3xl p-8 lg:p-12 text-white">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div>
+            <h2 class="font-display font-bold text-2xl sm:text-3xl mb-4">Why food manufacturers choose our masalas</h2>
+            <ul class="space-y-3">
+              {[
+                'Batch-to-batch consistency — same flavour profile every production run',
+                'Optimal particle size for even coating on extruded and fried products',
+                'Custom heat levels and flavour profiles available on request',
+                'Bulk pack sizes from 5kg to 25kg for commercial production',
+                'Compliant with FSSAI food additive regulations',
+                'Technical data sheets available for QC integration',
+              ].map(item => (
+                <li class="flex items-start gap-2.5 font-body text-sm text-white/80">
+                  <svg class="w-4 h-4 text-brand-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            {[
+              { label: 'SKUs', val: '4' },
+              { label: 'Custom Blends', val: 'Yes' },
+              { label: 'Bulk Pack', val: 'Up to 25kg' },
+              { label: 'FSSAI', val: 'Compliant' },
+            ].map(s => (
+              <div class="bg-white/10 rounded-xl p-5 text-center border border-white/10">
+                <div class="font-display font-bold text-brand-primary text-2xl">{s.val}</div>
+                <div class="font-body text-white/60 text-xs mt-1">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INQUIRY FORM -->
+  <section id="inquiry" class="py-20 bg-brand-light">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl mb-3">Request a Sample or Quote</h2>
+        <p class="font-body text-brand-muted text-base">We respond to all inquiries within 24 hours.</p>
+      </div>
+      <div class="bg-white rounded-3xl shadow-sm border border-stone-100 p-8 lg:p-10">
+        <InquiryForm brand="topclass" />
+      </div>
+    </div>
+  </section>
+</Layout>

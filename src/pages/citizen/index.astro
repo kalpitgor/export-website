@@ -1,0 +1,213 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import CertBadge from '../../components/CertBadge.astro';
+
+const onionVarieties = [
+  { type: 'White Onion', cuts: ['Flakes', 'Kibbled (15–35mm)', 'Chopped', 'Minced', 'Granules', 'Powder'] },
+  { type: 'Red Onion', cuts: ['Slices', 'Kibbled (15–35mm)', 'Chopped', 'Minced', 'Granules', 'Powder'] },
+  { type: 'Pink Onion', cuts: ['Slices', 'Kibbled (15–35mm)', 'Chopped', 'Minced', 'Granules', 'Powder'] },
+  { type: 'Toasted Onion', cuts: ['Flakes', 'Large Chopped', 'Chopped', 'Minced', 'Granules', 'Powder'] },
+];
+
+const garlicCuts = ['Whole Clove', 'Large Chopped', 'Chopped', 'Grits', 'Granules', 'Ground', 'Powder'];
+
+const powders = [
+  'Coriander Leaves', 'Coriander Powder', 'Carrot Flakes', 'Carrot Powder',
+  'Cabbage Flakes', 'Cabbage Powder', 'Spinach Powder', 'Curry Leaves',
+  'Curry Powder', 'Tamarind Powder', 'Green Chilli Powder', 'Amchur Powder',
+  'Ginger Powder', 'Beet Root Powder', 'Red Chilli Powder', 'Potato Powder',
+];
+---
+
+<Layout
+  title="Citizen Foods — Dehydrated Vegetables, Onion, Garlic & Powders"
+  description="Complete range of export-grade dehydrated onion, garlic, vegetable powders and flakes from Citizen Foods, India."
+>
+  <!-- HERO -->
+  <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-brand-dark">
+      <img
+        src="https://brandbridge-exports.lovable.app/assets/citizen-hero-D9gm2deQ.jpg"
+        alt="Citizen Foods dehydrated vegetables"
+        class="w-full h-full object-cover opacity-30"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/50 to-brand-dark/80"></div>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24">
+      <div class="animate-fade-up inline-flex items-center gap-2 bg-brand-primary/20 border border-brand-primary/40 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+        Citizen Foods
+      </div>
+      <h1 class="animate-fade-up animate-fade-up-delay-1 font-display font-bold text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-4">
+        Premium dehydrated vegetables, engineered for export.
+      </h1>
+      <p class="animate-fade-up animate-fade-up-delay-2 font-body text-white/70 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+        India's trusted manufacturer of export-grade dehydrated onions, garlic, vegetable powders and flakes — shipped to 30+ countries worldwide.
+      </p>
+    </div>
+  </section>
+
+  <!-- PRODUCT CATEGORIES -->
+  <section class="py-20 bg-brand-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl mb-3">Product Categories</h2>
+        <p class="font-body text-brand-muted text-base max-w-xl mx-auto">
+          Three export-ready product lines, manufactured to international food-safety standards.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <ProductCard
+          category="Citizen Foods"
+          title="Dehydrated Onion Products"
+          description="White, Red, Pink & Toasted. Multiple cut sizes available for all applications."
+          href="/citizen/onions"
+          badge="Best Seller"
+        />
+        <ProductCard
+          category="Citizen Foods"
+          title="Dehydrated Garlic Products"
+          description="From whole clove to fine powder. Strong aroma and stable shelf life."
+          href="/citizen/garlic"
+        />
+        <ProductCard
+          category="Citizen Foods"
+          title="Vegetable Powders & Flakes"
+          description="Color, flavor and functionality. Complete range for bulk export including 16+ products."
+          href="/citizen/powders-flakes"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL RANGE -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <div class="inline-flex items-center gap-2 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest mb-4">
+          <span class="w-8 h-px bg-brand-primary"></span>
+          Full Range
+          <span class="w-8 h-px bg-brand-primary"></span>
+        </div>
+        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl">Complete Product Catalogue</h2>
+      </div>
+
+      <!-- Dehydrated Onion Table -->
+      <div class="mb-16">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-1 h-8 bg-brand-primary rounded-full"></div>
+          <h3 class="font-display font-bold text-brand-dark text-2xl">Dehydrated Onion Products</h3>
+          <a href="/citizen/onions" class="ml-auto text-sm font-body font-semibold text-brand-primary hover:text-brand-accent flex items-center gap-1 transition-colors">
+            View Details
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-stone-200 shadow-sm">
+          <table class="w-full font-body text-sm">
+            <thead>
+              <tr class="bg-brand-dark text-white">
+                <th class="text-left px-5 py-4 font-semibold text-xs uppercase tracking-wider">Variety</th>
+                <th class="text-left px-5 py-4 font-semibold text-xs uppercase tracking-wider">Available Cut Sizes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {onionVarieties.map((row, i) => (
+                <tr class={i % 2 === 0 ? 'bg-white' : 'bg-stone-50'}>
+                  <td class="px-5 py-4 font-semibold text-brand-dark whitespace-nowrap">{row.type}</td>
+                  <td class="px-5 py-4">
+                    <div class="flex flex-wrap gap-2">
+                      {row.cuts.map(cut => (
+                        <span class="bg-amber-50 text-amber-800 text-xs font-medium px-3 py-1 rounded-full border border-amber-100">{cut}</span>
+                      ))}
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Dehydrated Garlic -->
+      <div class="mb-16">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-1 h-8 bg-brand-primary rounded-full"></div>
+          <h3 class="font-display font-bold text-brand-dark text-2xl">Dehydrated Garlic Products</h3>
+          <a href="/citizen/garlic" class="ml-auto text-sm font-body font-semibold text-brand-primary hover:text-brand-accent flex items-center gap-1 transition-colors">
+            View Details
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+        <div class="bg-stone-50 rounded-2xl border border-stone-200 p-6">
+          <p class="font-body text-brand-muted text-sm mb-4 font-semibold uppercase tracking-wider">Garlic — All Cut Sizes</p>
+          <div class="flex flex-wrap gap-2">
+            {garlicCuts.map(cut => (
+              <span class="bg-white text-brand-dark text-sm font-body font-medium px-4 py-2 rounded-xl border border-stone-200 hover:border-brand-primary/50 hover:bg-amber-50 transition-colors">{cut}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Vegetable Powders & Flakes -->
+      <div>
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-1 h-8 bg-brand-primary rounded-full"></div>
+          <h3 class="font-display font-bold text-brand-dark text-2xl">Vegetable Powders & Flakes</h3>
+          <a href="/citizen/powders-flakes" class="ml-auto text-sm font-body font-semibold text-brand-primary hover:text-brand-accent flex items-center gap-1 transition-colors">
+            View All
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          {powders.map(item => (
+            <div class="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-100 rounded-xl p-4 text-center hover:border-brand-primary/40 hover:shadow-sm transition-all">
+              <span class="font-body text-sm font-medium text-brand-dark">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="py-16 bg-brand-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-bold text-brand-dark text-2xl sm:text-3xl">Certified for international trade</h2>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <CertBadge name="ISO 22000" subtitle="Food Safety Mgmt." />
+        <CertBadge name="FSSAI" subtitle="India Food Safety" />
+        <CertBadge name="HACCP" subtitle="Hazard Analysis" />
+        <CertBadge name="APEDA" subtitle="Agricultural Export" />
+        <CertBadge name="FDA" subtitle="US Compliance" />
+        <CertBadge name="GMP" subtitle="Good Mfg. Practice" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-brand-dark text-white text-center">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mb-4">Ready to place an order?</h2>
+      <p class="font-body text-white/60 text-base mb-8">Get samples, pricing and freight terms within 24 hours.</p>
+      <a
+        href="/citizen/contact"
+        class="inline-flex items-center gap-2 bg-brand-primary hover:bg-amber-600 text-white font-body font-semibold px-8 py-4 rounded-full transition-all hover:scale-105"
+      >
+        Send Export Inquiry
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</Layout>

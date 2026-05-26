@@ -1,0 +1,242 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import CertBadge from '../../components/CertBadge.astro';
+
+const sauces = [
+  { name: 'Red Chilli Sauce', packs: ['200g', '630g', '1kg', '5kg', 'Sachets', '5L'] },
+  { name: 'Green Chilli Sauce', packs: ['200g', '630g', '1kg', '5kg', 'Sachets', '5L'] },
+  { name: 'Soya Sauce', packs: ['200g', '630g', '1kg', '5kg', 'Sachets', '5L'] },
+  { name: 'Vinegar', packs: ['200g', '630g', '1kg', '5kg', 'Sachets', '5L'] },
+  { name: 'Tomato Ketchup', packs: ['200g', '630g', '1kg', '5kg', 'Sachets', '5L'] },
+  { name: 'Schezwan Chutney', packs: ['200g', '630g', '1kg', '5kg', 'Sachets', '5L'] },
+];
+
+const pastes = [
+  { name: 'Garlic Paste', packs: ['200g', '500g', '1kg', '5kg'] },
+  { name: 'Ginger Garlic Paste', packs: ['200g', '500g', '1kg', '5kg'] },
+];
+
+const masalas = [
+  { name: 'Peri Peri Masala', desc: 'Bold, spicy blend inspired by the iconic peri peri flavour profile.' },
+  { name: 'Chat Masala', desc: 'Tangy-spicy classic seasoning for snacks, chaats and street food.' },
+  { name: 'Kurkure Masala', desc: 'Proprietary spice blend for extruded snacks and puffed products.' },
+  { name: 'Fryums Masala', desc: 'Custom-blended seasoning for fryums and fried snack coatings.' },
+];
+---
+
+<Layout
+  title="Top Class — Sauces, Pastes, Masalas & Seasonings"
+  description="Top Class ready-to-use sauces, pastes, masalas and snack seasonings for HoReCa, retail and food manufacturing. Made in India."
+>
+  <!-- HERO -->
+  <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-brand-dark">
+      <img
+        src="https://brandbridge-exports.lovable.app/assets/topclass-hero-C3wKyO_l.jpg"
+        alt="Top Class bold flavors"
+        class="w-full h-full object-cover opacity-40"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/50 via-brand-dark/30 to-brand-dark/80"></div>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-32">
+      <div class="animate-fade-up inline-flex items-center gap-2 bg-brand-primary/20 border border-brand-primary/40 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+        Top Class
+      </div>
+      <h1 class="animate-fade-up animate-fade-up-delay-1 font-display font-bold text-white text-4xl sm:text-5xl lg:text-7xl leading-tight mb-6">
+        Bold flavor,<br/>ready to plate.
+      </h1>
+      <p class="animate-fade-up animate-fade-up-delay-2 font-body text-white/70 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-10">
+        Ready-to-use sauces, pastes, masalas and seasonings engineered for HoReCa and retail — delivering consistent, authentic flavour every time.
+      </p>
+      <div class="animate-fade-up animate-fade-up-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#products" class="inline-flex items-center gap-2 bg-brand-primary hover:bg-amber-600 text-white font-body font-semibold text-sm px-8 py-4 rounded-full transition-all hover:scale-105 shadow-lg shadow-brand-primary/30 min-h-[52px]">
+          Explore Products
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <a href="/topclass/contact" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-body font-semibold text-sm px-8 py-4 rounded-full transition-all min-h-[52px]">
+          Request Samples
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT CATEGORIES -->
+  <section id="products" class="py-20 bg-brand-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest mb-4">
+          <span class="w-8 h-px bg-brand-primary"></span>
+          Product Lines
+          <span class="w-8 h-px bg-brand-primary"></span>
+        </div>
+        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl mb-3">Three bold product lines.</h2>
+        <p class="font-body text-brand-muted text-base max-w-xl mx-auto">
+          From signature sauces to snack seasonings — built for scale and consistency.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <ProductCard
+          category="Top Class"
+          title="Sauces & Condiments"
+          description="Signature taste solutions. Multiple pack sizes from sachets to 5L. Red, Green, Soya, Vinegar, Ketchup & Schezwan."
+          href="/topclass/sauces"
+        />
+        <ProductCard
+          category="Top Class"
+          title="Pastes"
+          description="Kitchen-ready, time-saving garlic and ginger garlic pastes. Available in 200g to 5kg packs."
+          href="/topclass/pastes"
+        />
+        <ProductCard
+          category="Top Class"
+          title="Masalas & Seasonings"
+          description="Snack-grade seasoning blends — Peri Peri, Chat Masala, Kurkure & Fryums Masala."
+          href="/topclass/masalas"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL RANGE -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl mb-3">Complete Range</h2>
+        <p class="font-body text-brand-muted text-base max-w-xl mx-auto">Every product in the Top Class line, with available pack sizes.</p>
+      </div>
+
+      <!-- Sauces & Condiments -->
+      <div class="mb-14">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-1 h-8 bg-brand-primary rounded-full"></div>
+          <h3 class="font-display font-bold text-brand-dark text-2xl">Sauces & Condiments</h3>
+          <a href="/topclass/sauces" class="ml-auto text-sm font-body font-semibold text-brand-primary hover:text-brand-accent flex items-center gap-1 transition-colors">
+            View Details
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+        <div class="overflow-x-auto rounded-2xl border border-stone-200 shadow-sm">
+          <table class="w-full font-body text-sm">
+            <thead>
+              <tr class="bg-brand-dark text-white">
+                <th class="text-left px-5 py-4 font-semibold text-xs uppercase tracking-wider">Product</th>
+                <th class="text-left px-5 py-4 font-semibold text-xs uppercase tracking-wider">Available Pack Sizes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sauces.map((s, i) => (
+                <tr class={i % 2 === 0 ? 'bg-white' : 'bg-stone-50'}>
+                  <td class="px-5 py-4 font-semibold text-brand-dark">{s.name}</td>
+                  <td class="px-5 py-4">
+                    <div class="flex flex-wrap gap-2">
+                      {s.packs.map(p => (
+                        <span class="bg-amber-50 text-amber-800 text-xs font-medium px-3 py-1 rounded-full border border-amber-100">{p}</span>
+                      ))}
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Pastes -->
+      <div class="mb-14">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-1 h-8 bg-brand-primary rounded-full"></div>
+          <h3 class="font-display font-bold text-brand-dark text-2xl">Pastes</h3>
+          <a href="/topclass/pastes" class="ml-auto text-sm font-body font-semibold text-brand-primary hover:text-brand-accent flex items-center gap-1 transition-colors">
+            View Details
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+        <div class="overflow-x-auto rounded-2xl border border-stone-200 shadow-sm">
+          <table class="w-full font-body text-sm">
+            <thead>
+              <tr class="bg-brand-dark text-white">
+                <th class="text-left px-5 py-4 font-semibold text-xs uppercase tracking-wider">Product</th>
+                <th class="text-left px-5 py-4 font-semibold text-xs uppercase tracking-wider">Available Pack Sizes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pastes.map((p, i) => (
+                <tr class={i % 2 === 0 ? 'bg-white' : 'bg-stone-50'}>
+                  <td class="px-5 py-4 font-semibold text-brand-dark">{p.name}</td>
+                  <td class="px-5 py-4">
+                    <div class="flex flex-wrap gap-2">
+                      {p.packs.map(pk => (
+                        <span class="bg-amber-50 text-amber-800 text-xs font-medium px-3 py-1 rounded-full border border-amber-100">{pk}</span>
+                      ))}
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Masalas -->
+      <div>
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-1 h-8 bg-brand-primary rounded-full"></div>
+          <h3 class="font-display font-bold text-brand-dark text-2xl">Masalas & Seasonings</h3>
+          <a href="/topclass/masalas" class="ml-auto text-sm font-body font-semibold text-brand-primary hover:text-brand-accent flex items-center gap-1 transition-colors">
+            View All
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {masalas.map(m => (
+            <div class="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-100 rounded-2xl p-6 hover:shadow-md transition-all">
+              <h4 class="font-display font-bold text-brand-dark text-base mb-2">{m.name}</h4>
+              <p class="font-body text-brand-muted text-sm leading-relaxed">{m.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="py-16 bg-brand-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-bold text-brand-dark text-2xl sm:text-3xl">Certified for international trade</h2>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <CertBadge name="ISO 22000" subtitle="Food Safety Mgmt." />
+        <CertBadge name="FSSAI" subtitle="India Food Safety" />
+        <CertBadge name="HACCP" subtitle="Hazard Analysis" />
+        <CertBadge name="APEDA" subtitle="Agricultural Export" />
+        <CertBadge name="FDA" subtitle="US Compliance" />
+        <CertBadge name="GMP" subtitle="Good Mfg. Practice" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-brand-dark text-white text-center">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display font-bold text-3xl sm:text-4xl mb-4">Source bold flavours from India.</h2>
+      <p class="font-body text-white/60 text-base mb-8">Samples, pricing and logistics within 24 hours of inquiry.</p>
+      <a href="/topclass/contact" class="inline-flex items-center gap-2 bg-brand-primary hover:bg-amber-600 text-white font-body font-semibold px-8 py-4 rounded-full transition-all hover:scale-105">
+        Send Top Class Inquiry
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+</Layout>

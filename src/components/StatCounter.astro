@@ -1,0 +1,58 @@
+---
+interface Props {
+  value: string;
+  label: string;
+  dark?: boolean;
+}
+
+const { value, label, dark = false } = Astro.props;
+---
+
+<div
+  class={`text-center px-6 py-8 stat-block ${dark ? '' : 'bg-white/5 rounded-2xl'}`}
+  data-stat
+>
+  <div
+    class={`font-display font-bold text-4xl lg:text-5xl mb-1 ${dark ? 'text-brand-dark' : 'text-white'}`}
+    data-target={value}
+  >
+    {value}
+  </div>
+  <div class={`font-body text-sm uppercase tracking-widest font-medium ${dark ? 'text-brand-muted' : 'text-white/60'}`}>
+    {label}
+  </div>
+</div>
+
+<script>
+  // Count-up animation on intersection
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target.querySelector('[data-target]') as HTMLElement;
+      if (!el || el.dataset.animated) return;
+      el.dataset.animated = 'true';
+
+      const raw = el.dataset.target || '';
+      const match = raw.match(/^(\d+)(.*)$/);
+      if (!match) return;
+
+      const end = parseInt(match[1], 10);
+      const suffix = match[2];
+      const duration = 1800;
+      const startTime = performance.now();
+
+      const tick = (now: number) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * end) + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+
+      requestAnimationFrame(tick);
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('[data-stat]').forEach(el => observer.observe(el));
+</script>

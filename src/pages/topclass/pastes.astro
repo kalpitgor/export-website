@@ -1,0 +1,152 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+
+const pastes = [
+  {
+    name: 'Garlic Paste',
+    desc: 'Pure garlic paste made from freshly processed Indian garlic. No additives. Strong, natural aroma and flavour. Kitchen-ready for direct application.',
+    color: 'from-amber-50 to-yellow-50',
+    border: 'border-amber-100',
+    features: ['No preservatives added', 'Strong, natural aroma', 'Uniform smooth texture', 'Consistent colour'],
+    packs: ['200g', '500g', '1kg', '5kg'],
+  },
+  {
+    name: 'Ginger Garlic Paste',
+    desc: 'Classic Indian kitchen staple — a precisely balanced blend of ginger and garlic. The base for millions of recipes worldwide. Time-saving for commercial kitchens.',
+    color: 'from-orange-50 to-amber-50',
+    border: 'border-orange-100',
+    features: ['Perfectly balanced ratio', 'No artificial flavours', 'Hygienic processing', 'Long shelf life'],
+    packs: ['200g', '500g', '1kg', '5kg'],
+  },
+];
+
+const specs = [
+  { label: 'Shelf Life', value: '6–12 months' },
+  { label: 'Variants', value: '2' },
+  { label: 'Pack Sizes', value: '4 options' },
+  { label: 'Compliance', value: 'FSSAI, HACCP' },
+  { label: 'Storage', value: 'Refrigerated' },
+  { label: 'Min. Order', value: '100 kg' },
+];
+---
+
+<Layout
+  title="Pastes — Garlic Paste & Ginger Garlic Paste — Top Class"
+  description="Fresh garlic paste and ginger garlic paste. Kitchen-ready, hygienic processing. Available in 200g to 5kg packs."
+>
+  <!-- HERO -->
+  <section class="relative min-h-[50vh] flex items-center overflow-hidden bg-brand-dark">
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-dark to-brand-dark/60"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
+      <nav class="flex items-center gap-2 text-white/40 text-xs font-body mb-6">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span>/</span>
+        <a href="/topclass" class="hover:text-white transition-colors">Top Class</a>
+        <span>/</span>
+        <span class="text-white/70">Pastes</span>
+      </nav>
+      <div class="animate-fade-up inline-flex items-center gap-2 bg-brand-primary/20 border border-brand-primary/40 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
+        Top Class
+      </div>
+      <h1 class="animate-fade-up animate-fade-up-delay-1 font-display font-bold text-white text-4xl sm:text-5xl lg:text-6xl max-w-2xl leading-tight mb-4">
+        Pastes
+      </h1>
+      <p class="animate-fade-up animate-fade-up-delay-2 font-body text-white/70 text-base sm:text-lg max-w-xl leading-relaxed mb-8">
+        Kitchen-ready garlic and ginger garlic pastes. Hygienic processing, natural ingredients and consistent quality — from 200g retail packs to 5kg catering sizes.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#inquiry" class="inline-flex items-center gap-2 bg-brand-primary hover:bg-amber-600 text-white font-body font-semibold text-sm px-7 py-3.5 rounded-full transition-all hover:scale-105">
+          Request Sample / Quote
+        </a>
+        <a href="/topclass" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-body font-medium text-sm px-7 py-3.5 rounded-full transition-all">
+          ← Back to Catalogue
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECS STRIP -->
+  <section class="bg-brand-primary/10 border-y border-brand-primary/20 py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        {specs.map(s => (
+          <div class="text-center">
+            <div class="font-display font-bold text-brand-dark text-base">{s.value}</div>
+            <div class="font-body text-brand-muted text-xs mt-0.5">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PASTE CARDS -->
+  <section class="py-20 bg-brand-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl mb-3">2 Essential Pastes</h2>
+        <p class="font-body text-brand-muted text-base max-w-xl mx-auto">
+          The base of Indian cooking — made right, every time.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {pastes.map(p => (
+          <div class={`bg-gradient-to-br ${p.color} border ${p.border} rounded-3xl p-8 hover:shadow-lg transition-all`}>
+            <h3 class="font-display font-bold text-brand-dark text-2xl mb-3">{p.name}</h3>
+            <p class="font-body text-brand-muted text-sm leading-relaxed mb-6">{p.desc}</p>
+
+            <div class="grid grid-cols-2 gap-2 mb-6">
+              {p.features.map(f => (
+                <div class="flex items-start gap-2 font-body text-sm text-brand-dark">
+                  <svg class="w-4 h-4 text-brand-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  {f}
+                </div>
+              ))}
+            </div>
+
+            <div>
+              <p class="font-body text-xs text-brand-muted font-semibold uppercase tracking-wider mb-2">Available Pack Sizes</p>
+              <div class="flex flex-wrap gap-2">
+                {p.packs.map(pk => (
+                  <span class="bg-white/70 text-brand-dark text-sm font-body font-semibold px-4 py-1.5 rounded-full border border-white shadow-sm">{pk}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICATIONS -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8">
+        <h2 class="font-display font-bold text-brand-dark text-2xl sm:text-3xl">Who uses our pastes?</h2>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        {['Restaurant Chains', 'Cloud Kitchens', 'HoReCa', 'Food Manufacturers', 'Meal Kit Brands', 'Retail / Export'].map(app => (
+          <div class="bg-stone-50 border border-stone-200 rounded-xl p-4 text-center hover:border-brand-primary/30 transition-colors">
+            <span class="font-body text-sm font-medium text-brand-dark">{app}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- INQUIRY FORM -->
+  <section id="inquiry" class="py-20 bg-brand-light">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl mb-3">Request a Sample or Quote</h2>
+        <p class="font-body text-brand-muted text-base">We respond to all inquiries within 24 hours.</p>
+      </div>
+      <div class="bg-white rounded-3xl shadow-sm border border-stone-100 p-8 lg:p-10">
+        <InquiryForm brand="topclass" />
+      </div>
+    </div>
+  </section>
+</Layout>

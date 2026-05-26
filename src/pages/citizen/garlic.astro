@@ -1,0 +1,151 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
+
+const cuts = [
+  { name: 'Whole Clove', desc: 'Full dehydrated cloves. Ideal for premium retail and food service.' },
+  { name: 'Large Chopped', desc: 'Coarse cut pieces. Used in spice blends and marinades.' },
+  { name: 'Chopped', desc: 'Medium-fine cut. Versatile for soups, seasonings and sauces.' },
+  { name: 'Grits', desc: 'Coarse granular texture. Preferred in dry rubs and spice mixes.' },
+  { name: 'Granules', desc: 'Uniform granule size. Consistent dispersion in seasoning blends.' },
+  { name: 'Ground', desc: 'Semi-fine milled garlic. Strong flavour release.' },
+  { name: 'Powder', desc: 'Ultra-fine powder. Maximum surface area for intense flavour.' },
+];
+
+const specs = [
+  { label: 'Moisture', value: '≤6%' },
+  { label: 'Allicin Content', value: 'High' },
+  { label: 'Shelf Life', value: '24 months' },
+  { label: 'Packaging', value: 'HDPE, cartons' },
+  { label: 'Compliance', value: 'FSSAI, FDA, HACCP' },
+  { label: 'Min. Order', value: '500 kg' },
+];
+---
+
+<Layout
+  title="Dehydrated Garlic Products — Citizen Foods"
+  description="Export-grade dehydrated garlic in all cut sizes — whole clove to fine powder. Strong aroma and stable shelf life."
+>
+  <!-- HERO -->
+  <section class="relative min-h-[50vh] flex items-center overflow-hidden bg-brand-dark">
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-dark to-brand-dark/60"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
+      <nav class="flex items-center gap-2 text-white/40 text-xs font-body mb-6">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span>/</span>
+        <a href="/citizen" class="hover:text-white transition-colors">Citizen Foods</a>
+        <span>/</span>
+        <span class="text-white/70">Dehydrated Garlic</span>
+      </nav>
+      <div class="animate-fade-up inline-flex items-center gap-2 bg-brand-primary/20 border border-brand-primary/40 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
+        Citizen Foods
+      </div>
+      <h1 class="animate-fade-up animate-fade-up-delay-1 font-display font-bold text-white text-4xl sm:text-5xl lg:text-6xl max-w-2xl leading-tight mb-4">
+        Dehydrated Garlic Products
+      </h1>
+      <p class="animate-fade-up animate-fade-up-delay-2 font-body text-white/70 text-base sm:text-lg max-w-xl leading-relaxed mb-8">
+        From whole clove to ultra-fine powder — naturally dried garlic with preserved allicin content, strong aroma and a 24-month shelf life.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#inquiry" class="inline-flex items-center gap-2 bg-brand-primary hover:bg-amber-600 text-white font-body font-semibold text-sm px-7 py-3.5 rounded-full transition-all hover:scale-105">
+          Request Sample / Quote
+        </a>
+        <a href="/citizen" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-body font-medium text-sm px-7 py-3.5 rounded-full transition-all">
+          ← Back to Catalogue
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECS STRIP -->
+  <section class="bg-brand-primary/10 border-y border-brand-primary/20 py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        {specs.map(s => (
+          <div class="text-center">
+            <div class="font-display font-bold text-brand-dark text-base">{s.value}</div>
+            <div class="font-body text-brand-muted text-xs mt-0.5">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CUT SIZES -->
+  <section class="py-20 bg-brand-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl mb-3">7 Cut Sizes. One Source.</h2>
+        <p class="font-body text-brand-muted text-base max-w-xl mx-auto">Every size precision-processed from fresh, locally-sourced Indian garlic.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        {cuts.map((cut, i) => (
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-stone-100 hover:shadow-md hover:-translate-y-1 transition-all">
+            <div class="w-8 h-8 bg-amber-50 rounded-lg flex items-center justify-center mb-3">
+              <span class="font-display font-bold text-brand-primary text-sm">{String(i + 1).padStart(2, '0')}</span>
+            </div>
+            <h3 class="font-display font-semibold text-brand-dark text-lg mb-1.5">{cut.name}</h3>
+            <p class="font-body text-brand-muted text-sm leading-relaxed">{cut.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY GARLIC -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-8 lg:p-12 border border-amber-100">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 class="font-display font-bold text-brand-dark text-2xl sm:text-3xl mb-4">Why buyers choose our garlic</h2>
+            <ul class="space-y-3">
+              {[
+                'Naturally sourced from prime Indian garlic-growing regions',
+                'Multi-stage drying preserves active allicin and aroma compounds',
+                'Strict moisture control — ≤6% ensures long shelf life',
+                'Available in bulk (drums) or retail-ready packaging',
+                'Consistent batch-to-batch color and particle size',
+                'Tested for pesticide residue, heavy metals and microbials',
+              ].map(item => (
+                <li class="flex items-start gap-2.5 font-body text-sm text-brand-dark">
+                  <svg class="w-4 h-4 text-brand-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            {[
+              { label: 'Allicin Preserved', val: 'Yes' },
+              { label: 'Moisture', val: '≤6%' },
+              { label: 'Shelf Life', val: '24 mo.' },
+              { label: 'Varieties', val: '1 (7 cuts)' },
+            ].map(s => (
+              <div class="bg-white rounded-xl p-5 text-center shadow-sm border border-amber-100">
+                <div class="font-display font-bold text-brand-primary text-2xl">{s.val}</div>
+                <div class="font-body text-brand-muted text-xs mt-1">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INQUIRY FORM -->
+  <section id="inquiry" class="py-20 bg-brand-light">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl mb-3">Request a Sample or Quote</h2>
+        <p class="font-body text-brand-muted text-base">We respond to all export inquiries within 24 hours.</p>
+      </div>
+      <div class="bg-white rounded-3xl shadow-sm border border-stone-100 p-8 lg:p-10">
+        <InquiryForm brand="citizen" />
+      </div>
+    </div>
+  </section>
+</Layout>
