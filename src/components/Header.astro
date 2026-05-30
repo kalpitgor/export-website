@@ -1,45 +1,114 @@
 ---
 const navLinks = [
   { label: 'Home', href: '/' },
-  { label: 'Citizen Foods', href: '/citizen' },
-  { label: 'Top Class', href: '/topclass' },
   { label: 'About', href: '/citizen/about' },
 ];
+const citizenLinks = [
+  { label: 'Citizen Foods', href: '/citizen' },
+  { label: 'Products', href: '/citizen' },
+  { label: 'About', href: '/citizen/about' },
+  { label: 'Contact', href: '/citizen/contact' },
+];
+const topclassLinks = [
+  { label: 'Top Class', href: '/topclass' },
+  { label: 'Sauces', href: '/topclass/sauces' },
+  { label: 'Masalas', href: '/topclass/masalas' },
+  { label: 'Contact', href: '/topclass/contact' },
+];
 const currentPath = Astro.url.pathname;
+const isHomepage = currentPath === '/';
 ---
 
 <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" data-header>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 lg:h-20">
-      <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 group">
-        <div class="w-8 h-8 bg-brand-primary rounded-md flex items-center justify-center">
-          <span class="text-white font-display font-bold text-sm">C</span>
-        </div>
-        <span class="font-display font-bold text-white text-lg leading-tight">
-          Citizen <span class="text-brand-primary">×</span> <span class="text-brand-primary">TOPCLASS</span>
-        </span>
-      </a>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-8">
-        {navLinks.map(link => (
-          <a
-            href={link.href}
-            class={`text-sm font-body font-medium transition-colors ${
-              currentPath === link.href
-                ? 'text-brand-primary'
-                : 'text-white/80 hover:text-white'
-            }`}
-          >
-            {link.label}
-          </a>
-        ))}
+      <!-- Dual Logo Toggle -->
+      <div class="flex items-center gap-1">
+        <!-- Citizen Foods Logo -->
+        <button
+          id="logo-citizen"
+          data-brand="citizen"
+          aria-label="Switch to Citizen Foods"
+          class="logo-btn flex items-center gap-2 px-3 py-2 rounded-xl transition-all duration-200 hover:bg-white/10 group"
+        >
+          <img
+            src="/logo-citizen.png"
+            alt="Citizen Foods"
+            class="h-8 w-auto object-contain"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <!-- Fallback if image missing -->
+          <div class="hidden w-8 h-8 bg-amber-600 rounded-md items-center justify-center shrink-0">
+            <span class="text-white font-display font-bold text-sm">C</span>
+          </div>
+          <span class="logo-label font-display font-bold text-sm leading-tight transition-colors text-white/60 group-hover:text-white">
+            Citizen
+          </span>
+        </button>
+
+        <!-- Divider -->
+        <span class="text-white/30 font-light text-lg select-none px-1">×</span>
+
+        <!-- Top Class Logo -->
+        <button
+          id="logo-topclass"
+          data-brand="topclass"
+          aria-label="Switch to Top Class"
+          class="logo-btn flex items-center gap-2 px-3 py-2 rounded-xl transition-all duration-200 hover:bg-white/10 group"
+        >
+          <img
+            src="/logo-topclass.png"
+            alt="Top Class"
+            class="h-8 w-auto object-contain"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <!-- Fallback if image missing -->
+          <div class="hidden w-8 h-8 bg-red-700 rounded-md items-center justify-center shrink-0">
+            <span class="text-white font-display font-bold text-xs">TC</span>
+          </div>
+          <span class="logo-label font-display font-bold text-sm leading-tight transition-colors text-white/60 group-hover:text-white">
+            Top Class
+          </span>
+        </button>
+      </div>
+
+      <!-- Desktop Nav (changes based on active brand) -->
+      <nav class="hidden md:flex items-center gap-6">
+        <div id="nav-citizen" class="flex items-center gap-6">
+          {citizenLinks.map(link => (
+            <a
+              href={link.href}
+              class={`text-sm font-body font-medium transition-colors ${
+                currentPath === link.href
+                  ? 'text-brand-primary'
+                  : 'text-white/80 hover:text-white'
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+        <div id="nav-topclass" class="hidden flex items-center gap-6">
+          {topclassLinks.map(link => (
+            <a
+              href={link.href}
+              class={`text-sm font-body font-medium transition-colors ${
+                currentPath === link.href
+                  ? 'text-brand-primary'
+                  : 'text-white/80 hover:text-white'
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
       </nav>
 
       <!-- CTA + Hamburger -->
       <div class="flex items-center gap-3">
         <a
+          id="cta-btn"
           href="/citizen/contact"
           class="hidden md:inline-flex items-center gap-2 bg-brand-primary hover:bg-amber-600 text-white text-sm font-body font-semibold px-5 py-2.5 rounded-full transition-all hover:scale-105 active:scale-95"
         >
@@ -66,20 +135,37 @@ const currentPath = Astro.url.pathname;
     class="md:hidden max-h-0 overflow-hidden transition-all duration-300 ease-in-out bg-brand-dark/95 backdrop-blur-sm"
   >
     <nav class="flex flex-col gap-1 px-4 py-4 border-t border-white/10">
-      {navLinks.map(link => (
-        <a
-          href={link.href}
-          class="flex items-center px-4 py-3 rounded-xl text-white/80 hover:text-white hover:bg-white/10 font-body font-medium transition-colors"
-        >
-          {link.label}
+      <!-- Mobile brand tabs -->
+      <div class="flex gap-2 mb-3">
+        <button data-brand="citizen" class="mobile-brand-tab flex-1 py-2 rounded-lg text-sm font-body font-semibold text-center transition-colors bg-brand-primary text-white" id="mobile-tab-citizen">
+          Citizen Foods
+        </button>
+        <button data-brand="topclass" class="mobile-brand-tab flex-1 py-2 rounded-lg text-sm font-body font-semibold text-center transition-colors bg-white/10 text-white/70" id="mobile-tab-topclass">
+          Top Class
+        </button>
+      </div>
+
+      <div id="mobile-nav-citizen" class="flex flex-col gap-1">
+        {citizenLinks.map(link => (
+          <a href={link.href} class="flex items-center px-4 py-3 rounded-xl text-white/80 hover:text-white hover:bg-white/10 font-body font-medium transition-colors">
+            {link.label}
+          </a>
+        ))}
+        <a href="/citizen/contact" class="mt-2 flex items-center justify-center bg-brand-primary hover:bg-amber-600 text-white font-body font-semibold py-3 px-6 rounded-xl transition-colors">
+          Get Quote
         </a>
-      ))}
-      <a
-        href="/citizen/contact"
-        class="mt-2 flex items-center justify-center bg-brand-primary hover:bg-amber-600 text-white font-body font-semibold py-3 px-6 rounded-xl transition-colors"
-      >
-        Get Quote
-      </a>
+      </div>
+
+      <div id="mobile-nav-topclass" class="hidden flex flex-col gap-1">
+        {topclassLinks.map(link => (
+          <a href={link.href} class="flex items-center px-4 py-3 rounded-xl text-white/80 hover:text-white hover:bg-white/10 font-body font-medium transition-colors">
+            {link.label}
+          </a>
+        ))}
+        <a href="/topclass/contact" class="mt-2 flex items-center justify-center bg-brand-primary hover:bg-amber-600 text-white font-body font-semibold py-3 px-6 rounded-xl transition-colors">
+          Get Quote
+        </a>
+      </div>
     </nav>
   </div>
 </header>
@@ -90,6 +176,7 @@ const currentPath = Astro.url.pathname;
   const menu = document.getElementById('mobile-menu');
   const lines = document.querySelectorAll('.hamburger-line');
   let menuOpen = false;
+  const isHomepage = window.location.pathname === '/';
 
   // Scroll backdrop
   window.addEventListener('scroll', () => {
@@ -115,4 +202,92 @@ const currentPath = Astro.url.pathname;
       lines[2].classList.remove('-rotate-45', '-translate-y-2', '!w-6');
     }
   });
+
+  // Brand switching logic
+  function switchBrand(brand: string) {
+    const logoCitizen = document.getElementById('logo-citizen');
+    const logoTopclass = document.getElementById('logo-topclass');
+    const navCitizen = document.getElementById('nav-citizen');
+    const navTopclass = document.getElementById('nav-topclass');
+    const ctaBtn = document.getElementById('cta-btn') as HTMLAnchorElement;
+    const mobileTabCitizen = document.getElementById('mobile-tab-citizen');
+    const mobileTabTopclass = document.getElementById('mobile-tab-topclass');
+    const mobileNavCitizen = document.getElementById('mobile-nav-citizen');
+    const mobileNavTopclass = document.getElementById('mobile-nav-topclass');
+
+    const isCitizen = brand === 'citizen';
+
+    // Active logo highlight
+    logoCitizen?.querySelectorAll('.logo-label').forEach(el => {
+      el.classList.toggle('text-white', isCitizen);
+      el.classList.toggle('text-white/60', !isCitizen);
+    });
+    logoTopclass?.querySelectorAll('.logo-label').forEach(el => {
+      el.classList.toggle('text-white', !isCitizen);
+      el.classList.toggle('text-white/60', isCitizen);
+    });
+
+    // Active logo ring
+    logoCitizen?.classList.toggle('ring-2', isCitizen);
+    logoCitizen?.classList.toggle('ring-brand-primary', isCitizen);
+    logoTopclass?.classList.toggle('ring-2', !isCitizen);
+    logoTopclass?.classList.toggle('ring-brand-primary', !isCitizen);
+
+    // Desktop nav swap
+    navCitizen?.classList.toggle('hidden', !isCitizen);
+    navCitizen?.classList.toggle('flex', isCitizen);
+    navTopclass?.classList.toggle('hidden', isCitizen);
+    navTopclass?.classList.toggle('flex', !isCitizen);
+
+    // CTA link
+    if (ctaBtn) ctaBtn.href = isCitizen ? '/citizen/contact' : '/topclass/contact';
+
+    // Mobile tabs
+    mobileTabCitizen?.classList.toggle('bg-brand-primary', isCitizen);
+    mobileTabCitizen?.classList.toggle('text-white', isCitizen);
+    mobileTabCitizen?.classList.toggle('bg-white/10', !isCitizen);
+    mobileTabCitizen?.classList.toggle('text-white/70', !isCitizen);
+    mobileTabTopclass?.classList.toggle('bg-brand-primary', !isCitizen);
+    mobileTabTopclass?.classList.toggle('text-white', !isCitizen);
+    mobileTabTopclass?.classList.toggle('bg-white/10', isCitizen);
+    mobileTabTopclass?.classList.toggle('text-white/70', isCitizen);
+    mobileNavCitizen?.classList.toggle('hidden', !isCitizen);
+    mobileNavTopclass?.classList.toggle('hidden', isCitizen);
+
+    // On homepage: toggle content sections
+    if (isHomepage) {
+      const sectionCitizen = document.getElementById('brand-citizen');
+      const sectionTopclass = document.getElementById('brand-topclass');
+      if (sectionCitizen && sectionTopclass) {
+        sectionCitizen.classList.toggle('hidden', !isCitizen);
+        sectionTopclass.classList.toggle('hidden', isCitizen);
+      }
+    } else {
+      // On sub-pages: navigate to the brand's main page
+      const href = isCitizen ? '/citizen' : '/topclass';
+      window.location.href = href;
+    }
+
+    // Persist choice in sessionStorage
+    sessionStorage.setItem('activeBrand', brand);
+  }
+
+  // Logo button clicks
+  document.querySelectorAll('[data-brand]').forEach(el => {
+    el.addEventListener('click', () => {
+      const brand = (el as HTMLElement).dataset.brand!;
+      switchBrand(brand);
+    });
+  });
+
+  // Init active brand from sessionStorage or URL
+  function initBrand() {
+    let brand = sessionStorage.getItem('activeBrand') || 'citizen';
+    // Auto-detect from URL path
+    if (window.location.pathname.startsWith('/topclass')) brand = 'topclass';
+    else if (window.location.pathname.startsWith('/citizen')) brand = 'citizen';
+    switchBrand(brand);
+  }
+
+  initBrand();
 </script>
