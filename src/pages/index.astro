@@ -10,7 +10,7 @@ const countries = [
   'Japan','South Korea','Singapore','Malaysia','South Africa','Kenya','Nigeria','Brazil',
 ];
 
-const features = [
+const citizenFeatures = [
   {
     icon: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
     title: 'Export Quality',
@@ -43,6 +43,39 @@ const features = [
   },
 ];
 
+const topclassFeatures = [
+  {
+    icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z',
+    title: 'Authentic Flavors',
+    desc: 'Recipes perfected for global palates without compromising on Indian authenticity.',
+  },
+  {
+    icon: 'M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18',
+    title: 'HoReCa Ready',
+    desc: 'Bulk sizes from 1kg to 5L designed for professional kitchens.',
+  },
+  {
+    icon: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4',
+    title: 'Multiple Pack Sizes',
+    desc: 'Sachets to large drums — flexible packs for every channel.',
+  },
+  {
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Shelf-Stable',
+    desc: 'Extended shelf life for long-haul export and retail requirements.',
+  },
+  {
+    icon: 'M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z',
+    title: 'Private Label',
+    desc: 'Custom branding and packaging available for retail partners.',
+  },
+  {
+    icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Competitive Pricing',
+    desc: 'Direct-from-manufacturer pricing without middlemen.',
+  },
+];
+
 const certs = [
   { name: 'ISO 22000:2018', subtitle: 'Food Safety Mgmt.' },
   { name: 'FSSAI', subtitle: 'India Food Safety' },
@@ -57,310 +90,480 @@ const certs = [
   title="Citizen Foods × Top Class — Premium Indian Food Export House"
   description="Premium dehydrated vegetables, spices, sauces and seasonings from India. Exported to 30+ countries. ISO 22000, FSSAI, HACCP certified."
 >
-  <!-- HERO -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 bg-brand-dark">
-      <img
-        src="https://brandbridge-exports.lovable.app/assets/citizen-hero-D9gm2deQ.jpg"
-        alt="Citizen Foods hero — dehydrated spices and vegetables"
-        class="w-full h-full object-cover opacity-40"
-        loading="eager"
-      />
-      <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/60 via-brand-dark/30 to-brand-dark/80"></div>
-    </div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
-      <div class="animate-fade-up inline-flex items-center gap-2 bg-brand-primary/20 border border-brand-primary/40 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
-        <span class="w-1.5 h-1.5 bg-brand-primary rounded-full"></span>
-        Exporting Indian Quality to 30+ Countries
+  <!-- ═══════════════════════════════════════════════════
+       CITIZEN FOODS SECTION
+  ═══════════════════════════════════════════════════ -->
+  <div id="brand-citizen">
+
+    <!-- HERO -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 bg-brand-dark">
+        <img
+          src="https://brandbridge-exports.lovable.app/assets/citizen-hero-D9gm2deQ.jpg"
+          alt="Citizen Foods hero — dehydrated spices and vegetables"
+          class="w-full h-full object-cover opacity-40"
+          loading="eager"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/60 via-brand-dark/30 to-brand-dark/80"></div>
       </div>
 
-      <h1 class="animate-fade-up animate-fade-up-delay-1 font-display font-bold text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight max-w-4xl mx-auto mb-6">
-        Premium dehydrated vegetables &amp; spices
-      </h1>
-
-      <p class="animate-fade-up animate-fade-up-delay-2 font-body text-white/70 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-        Citizen Foods delivers export-grade dehydrated onions, garlic, vegetable powders and flakes — engineered for color, aroma and consistency across every shipment.
-      </p>
-
-      <div class="animate-fade-up animate-fade-up-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a
-          href="/citizen"
-          class="inline-flex items-center gap-2 bg-brand-primary hover:bg-amber-600 text-white font-body font-semibold text-sm px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg shadow-brand-primary/30 min-h-[52px]"
-        >
-          View Catalogue
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
-        </a>
-        <a
-          href="/citizen/contact"
-          class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-body font-semibold text-sm px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 min-h-[52px] backdrop-blur-sm"
-        >
-          Request Sample
-        </a>
-      </div>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40 animate-bounce">
-      <span class="text-xs font-body tracking-wider">Scroll</span>
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-      </svg>
-    </div>
-  </section>
-
-  <!-- STATS -->
-  <section class="bg-brand-dark py-16 lg:py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-        <StatCounter value="30+" label="Export Countries" />
-        <StatCounter value="200+" label="Product SKUs" />
-        <StatCounter value="25+" label="Years Expertise" />
-        <StatCounter value="5000+" label="MT Annual Capacity" />
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUCTS -->
-  <section class="py-20 lg:py-28 bg-brand-light">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
-        <div class="inline-flex items-center gap-2 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest mb-4">
-          <span class="w-8 h-px bg-brand-primary"></span>
-          Our Products
-          <span class="w-8 h-px bg-brand-primary"></span>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+        <div class="animate-fade-up inline-flex items-center gap-2 bg-brand-primary/20 border border-brand-primary/40 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+          <span class="w-1.5 h-1.5 bg-brand-primary rounded-full"></span>
+          Exporting Indian Quality to 30+ Countries
         </div>
-        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl lg:text-5xl mb-4">
-          Precision-dried. Export-ready.
-        </h2>
-        <p class="font-body text-brand-muted text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-          Every product meets international color, moisture and microbiological standards — packed for long-haul export.
+
+        <h1 class="animate-fade-up animate-fade-up-delay-1 font-display font-bold text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight max-w-4xl mx-auto mb-6">
+          Premium dehydrated vegetables &amp; spices
+        </h1>
+
+        <p class="animate-fade-up animate-fade-up-delay-2 font-body text-white/70 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+          Citizen Foods delivers export-grade dehydrated onions, garlic, vegetable powders and flakes — engineered for color, aroma and consistency across every shipment.
         </p>
+
+        <div class="animate-fade-up animate-fade-up-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/citizen" class="inline-flex items-center gap-2 bg-brand-primary hover:bg-amber-600 text-white font-body font-semibold text-sm px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg shadow-brand-primary/30 min-h-[52px]">
+            View Catalogue
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+          <a href="/citizen/contact" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-body font-semibold text-sm px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 min-h-[52px] backdrop-blur-sm">
+            Request Sample
+          </a>
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        <ProductCard
-          category="Citizen Foods"
-          title="Vegetable Powders & Flakes"
-          description="Onion, garlic, tomato, ginger and more. Color-stable, aroma-rich, export-grade."
-          href="/citizen/powders-flakes"
-        />
-        <ProductCard
-          category="Citizen Foods"
-          title="Dehydrated Onion Range"
-          description="Minced, chopped, sliced, powder & flakes. White, Red, Pink and Toasted."
-          href="/citizen/onions"
-        />
-        <ProductCard
-          category="Citizen Foods"
-          title="Garlic & Specialty Items"
-          description="Garlic powder, flakes, blended spice bases. Strong aroma and stable shelf life."
-          href="/citizen/garlic"
-        />
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40 animate-bounce">
+        <span class="text-xs font-body tracking-wider">Scroll</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
       </div>
+    </section>
 
-      <div class="text-center mt-10">
-        <a
-          href="/citizen"
-          class="inline-flex items-center gap-2 font-body font-semibold text-brand-primary hover:text-brand-accent text-sm transition-colors border-b-2 border-brand-primary/30 hover:border-brand-primary pb-0.5"
-        >
-          Full Citizen Catalogue
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
-        </a>
+    <!-- STATS -->
+    <section class="bg-brand-dark py-16 lg:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <StatCounter value="30+" label="Export Countries" />
+          <StatCounter value="200+" label="Product SKUs" />
+          <StatCounter value="25+" label="Years Expertise" />
+          <StatCounter value="5000+" label="MT Annual Capacity" />
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ABOUT -->
-  <section class="py-20 lg:py-28 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        <!-- Text -->
-        <div>
+    <!-- PRODUCTS -->
+    <section class="py-20 lg:py-28 bg-brand-light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
           <div class="inline-flex items-center gap-2 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest mb-4">
             <span class="w-8 h-px bg-brand-primary"></span>
-            About Us
+            Our Products
+            <span class="w-8 h-px bg-brand-primary"></span>
           </div>
-          <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl lg:text-5xl mb-6 leading-tight">
-            An Indian manufacturer built for the world.
+          <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl lg:text-5xl mb-4">
+            Precision-dried. Export-ready.
           </h2>
-          <p class="font-body text-brand-muted text-base leading-relaxed mb-8">
-            From source farms to sealed export containers, every step happens under one hygienic facility. Our modern processing lines are engineered for bulk capacity without compromising food safety, color or aroma.
+          <p class="font-body text-brand-muted text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            Every product meets international color, moisture and microbiological standards — packed for long-haul export.
           </p>
+        </div>
 
-          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-            {['Naturally sourced', 'Modern processing', 'Food safety committed', 'Worldwide supply', 'Bulk export capacity', 'Export-grade standards'].map(item => (
-              <li class="flex items-center gap-2.5 font-body text-sm text-brand-dark font-medium">
-                <svg class="w-4 h-4 text-brand-primary shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                </svg>
-                {item}
-              </li>
-            ))}
-          </ul>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <ProductCard category="Citizen Foods" title="Vegetable Powders & Flakes" description="Onion, garlic, tomato, ginger and more. Color-stable, aroma-rich, export-grade." href="/citizen/powders-flakes" />
+          <ProductCard category="Citizen Foods" title="Dehydrated Onion Range" description="Minced, chopped, sliced, powder & flakes. White, Red, Pink and Toasted." href="/citizen/onions" />
+          <ProductCard category="Citizen Foods" title="Garlic & Specialty Items" description="Garlic powder, flakes, blended spice bases. Strong aroma and stable shelf life." href="/citizen/garlic" />
+        </div>
 
-          <a
-            href="/citizen/about"
-            class="inline-flex items-center gap-2 bg-brand-dark hover:bg-brand-accent text-white font-body font-semibold text-sm px-7 py-3.5 rounded-full transition-all hover:scale-105 active:scale-95"
-          >
-            Learn more about us
+        <div class="text-center mt-10">
+          <a href="/citizen" class="inline-flex items-center gap-2 font-body font-semibold text-brand-primary hover:text-brand-accent text-sm transition-colors border-b-2 border-brand-primary/30 hover:border-brand-primary pb-0.5">
+            Full Citizen Catalogue
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </a>
         </div>
-
-        <!-- Image -->
-        <div class="relative">
-          <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-            <img
-              src="https://brandbridge-exports.lovable.app/assets/facility-CTZknzzJ.jpg"
-              alt="Citizen Foods state-of-the-art dehydration facility"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <div class="absolute -bottom-4 -left-4 bg-brand-primary text-white px-5 py-3 rounded-2xl shadow-lg max-w-[220px]">
-            <p class="font-body text-xs font-semibold leading-snug">State-of-the-art dehydration &amp; processing</p>
-          </div>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- WHY CHOOSE US -->
-  <section class="py-20 lg:py-28 bg-brand-light">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
-        <div class="inline-flex items-center gap-2 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest mb-4">
-          <span class="w-8 h-px bg-brand-primary"></span>
-          Why Choose Us
-          <span class="w-8 h-px bg-brand-primary"></span>
-        </div>
-        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl lg:text-5xl">
-          Built for serious export buyers.
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {features.map(f => (
-          <div class="bg-white rounded-2xl p-7 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-stone-100">
-            <div class="w-11 h-11 bg-amber-50 rounded-xl flex items-center justify-center mb-4">
-              <svg class="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d={f.icon}/>
-              </svg>
+    <!-- ABOUT -->
+    <section class="py-20 lg:py-28 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest mb-4">
+              <span class="w-8 h-px bg-brand-primary"></span>
+              About Us
             </div>
-            <h3 class="font-display font-semibold text-brand-dark text-lg mb-2">{f.title}</h3>
-            <p class="font-body text-brand-muted text-sm leading-relaxed">{f.desc}</p>
+            <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl lg:text-5xl mb-6 leading-tight">
+              An Indian manufacturer built for the world.
+            </h2>
+            <p class="font-body text-brand-muted text-base leading-relaxed mb-8">
+              From source farms to sealed export containers, every step happens under one hygienic facility. Our modern processing lines are engineered for bulk capacity without compromising food safety, color or aroma.
+            </p>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+              {['Naturally sourced', 'Modern processing', 'Food safety committed', 'Worldwide supply', 'Bulk export capacity', 'Export-grade standards'].map(item => (
+                <li class="flex items-center gap-2.5 font-body text-sm text-brand-dark font-medium">
+                  <svg class="w-4 h-4 text-brand-primary shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a href="/citizen/about" class="inline-flex items-center gap-2 bg-brand-dark hover:bg-brand-accent text-white font-body font-semibold text-sm px-7 py-3.5 rounded-full transition-all hover:scale-105 active:scale-95">
+              Learn more about us
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
           </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- TOP CLASS CALLOUT -->
-  <section class="py-20 lg:py-28 bg-brand-dark relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10">
-      <img src="https://brandbridge-exports.lovable.app/assets/topclass-hero-C3wKyO_l.jpg" alt="" class="w-full h-full object-cover" aria-hidden="true" />
-    </div>
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl">
-        <div class="inline-flex items-center gap-2 bg-brand-primary/20 border border-brand-primary/40 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
-          Also discover
+          <div class="relative">
+            <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+              <img src="https://brandbridge-exports.lovable.app/assets/facility-CTZknzzJ.jpg" alt="Citizen Foods state-of-the-art dehydration facility" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="absolute -bottom-4 -left-4 bg-brand-primary text-white px-5 py-3 rounded-2xl shadow-lg max-w-[220px]">
+              <p class="font-body text-xs font-semibold leading-snug">State-of-the-art dehydration &amp; processing</p>
+            </div>
+          </div>
         </div>
-        <h2 class="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl mb-4 leading-tight">
-          Top Class — Bold flavor, ready to plate.
-        </h2>
-        <p class="font-body text-white/60 text-base lg:text-lg leading-relaxed mb-8">
-          Ready-to-use sauces, pastes, masalas and seasonings for HoReCa and retail — made for the modern kitchen.
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="py-20 lg:py-28 bg-brand-light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <div class="inline-flex items-center gap-2 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest mb-4">
+            <span class="w-8 h-px bg-brand-primary"></span>
+            Why Choose Us
+            <span class="w-8 h-px bg-brand-primary"></span>
+          </div>
+          <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl lg:text-5xl">
+            Built for serious export buyers.
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {citizenFeatures.map(f => (
+            <div class="bg-white rounded-2xl p-7 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-stone-100">
+              <div class="w-11 h-11 bg-amber-50 rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={f.icon}/>
+                </svg>
+              </div>
+              <h3 class="font-display font-semibold text-brand-dark text-lg mb-2">{f.title}</h3>
+              <p class="font-body text-brand-muted text-sm leading-relaxed">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- GLOBAL REACH -->
+    <section class="py-16 bg-brand-light overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
+        <div class="inline-flex items-center gap-2 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest mb-3">
+          <span class="w-8 h-px bg-brand-primary"></span>
+          Global Reach
+          <span class="w-8 h-px bg-brand-primary"></span>
+        </div>
+        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl">Exporting to 30+ countries.</h2>
+      </div>
+      <div class="relative overflow-hidden py-4">
+        <div class="marquee-track">
+          {[...countries, ...countries].map((c, i) => (
+            <div key={i} class="flex items-center gap-4 px-6 shrink-0">
+              <span class="w-1.5 h-1.5 bg-brand-primary rounded-full"></span>
+              <span class="font-body font-medium text-brand-dark text-sm whitespace-nowrap">{c}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="py-20 lg:py-28 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center gap-2 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest mb-4">
+            <span class="w-8 h-px bg-brand-primary"></span>
+            Certifications
+            <span class="w-8 h-px bg-brand-primary"></span>
+          </div>
+          <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl">Trusted compliance, end-to-end.</h2>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          {certs.map(cert => <CertBadge name={cert.name} subtitle={cert.subtitle} />)}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 lg:py-28 bg-gradient-to-br from-brand-accent via-brand-primary to-amber-500 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <div class="w-full h-full" style="background-image: radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 20%, white 1px, transparent 1px); background-size: 60px 60px;"></div>
+      </div>
+      <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl mb-4">Ready to source from India?</h2>
+        <p class="font-body text-white/80 text-base sm:text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+          Tell us what you need and our export team will reply within 24 hours with samples, pricing and freight terms.
         </p>
-        <a
-          href="/topclass"
-          class="inline-flex items-center gap-2 bg-brand-primary hover:bg-amber-600 text-white font-body font-semibold text-sm px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg"
-        >
-          Explore Top Class
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
-        </a>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/citizen/contact" class="inline-flex items-center gap-2 bg-white hover:bg-amber-50 text-brand-primary font-body font-bold text-sm px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 shadow-xl min-h-[52px]">
+            Send Export Inquiry
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+          <a href="/citizen/about" class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 border border-white/40 text-white font-body font-semibold text-sm px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 min-h-[52px]">
+            About Citizen Foods
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- GLOBAL REACH MARQUEE -->
-  <section class="py-16 bg-brand-light overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
-      <div class="inline-flex items-center gap-2 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest mb-3">
-        <span class="w-8 h-px bg-brand-primary"></span>
-        Global Reach
-        <span class="w-8 h-px bg-brand-primary"></span>
+  </div><!-- end #brand-citizen -->
+
+
+  <!-- ═══════════════════════════════════════════════════
+       TOP CLASS SECTION (hidden by default)
+  ═══════════════════════════════════════════════════ -->
+  <div id="brand-topclass" class="hidden">
+
+    <!-- HERO -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 bg-brand-dark">
+        <img
+          src="https://brandbridge-exports.lovable.app/assets/topclass-hero-C3wKyO_l.jpg"
+          alt="Top Class bold flavors"
+          class="w-full h-full object-cover opacity-40"
+          loading="eager"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/60 via-brand-dark/30 to-brand-dark/80"></div>
       </div>
-      <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl">Exporting to 30+ countries.</h2>
-    </div>
 
-    <div class="relative overflow-hidden py-4">
-      <div class="marquee-track">
-        {[...countries, ...countries].map((c, i) => (
-          <div key={i} class="flex items-center gap-4 px-6 shrink-0">
-            <span class="w-1.5 h-1.5 bg-brand-primary rounded-full"></span>
-            <span class="font-body font-medium text-brand-dark text-sm whitespace-nowrap">{c}</span>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+        <div class="animate-fade-up inline-flex items-center gap-2 bg-red-700/20 border border-red-700/40 text-red-400 text-xs font-body font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+          <span class="w-1.5 h-1.5 bg-red-400 rounded-full"></span>
+          Bold Flavors for HoReCa &amp; Retail
+        </div>
+
+        <h1 class="animate-fade-up animate-fade-up-delay-1 font-display font-bold text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight max-w-4xl mx-auto mb-6">
+          Bold flavor,<br/>ready to plate.
+        </h1>
+
+        <p class="animate-fade-up animate-fade-up-delay-2 font-body text-white/70 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+          Ready-to-use sauces, pastes, masalas and seasonings engineered for HoReCa and retail — delivering consistent, authentic flavour every time.
+        </p>
+
+        <div class="animate-fade-up animate-fade-up-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/topclass" class="inline-flex items-center gap-2 bg-brand-primary hover:bg-amber-600 text-white font-body font-semibold text-sm px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg shadow-brand-primary/30 min-h-[52px]">
+            Explore Products
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+          <a href="/topclass/contact" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-body font-semibold text-sm px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 min-h-[52px] backdrop-blur-sm">
+            Request Sample
+          </a>
+        </div>
+      </div>
+
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40 animate-bounce">
+        <span class="text-xs font-body tracking-wider">Scroll</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="bg-brand-dark py-16 lg:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <StatCounter value="3" label="Product Lines" />
+          <StatCounter value="10+" label="Sauce Variants" />
+          <StatCounter value="6" label="Pack Size Options" />
+          <StatCounter value="24h" label="Sample Turnaround" />
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="py-20 lg:py-28 bg-brand-light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <div class="inline-flex items-center gap-2 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest mb-4">
+            <span class="w-8 h-px bg-brand-primary"></span>
+            Our Products
+            <span class="w-8 h-px bg-brand-primary"></span>
           </div>
-        ))}
-      </div>
-    </div>
-  </section>
+          <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl lg:text-5xl mb-4">
+            Three bold product lines.
+          </h2>
+          <p class="font-body text-brand-muted text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            From signature sauces to snack seasonings — built for scale and consistency.
+          </p>
+        </div>
 
-  <!-- CERTIFICATIONS -->
-  <section class="py-20 lg:py-28 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <div class="inline-flex items-center gap-2 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest mb-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <ProductCard category="Top Class" title="Sauces & Condiments" description="Signature taste solutions. Multiple pack sizes from sachets to 5L. Red, Green, Soya, Vinegar, Ketchup & Schezwan." href="/topclass/sauces" />
+          <ProductCard category="Top Class" title="Pastes" description="Kitchen-ready garlic and ginger garlic pastes. Available in 200g to 5kg packs." href="/topclass/pastes" />
+          <ProductCard category="Top Class" title="Masalas & Seasonings" description="Snack-grade seasoning blends — Peri Peri, Chat Masala, Kurkure & Fryums Masala." href="/topclass/masalas" />
+        </div>
+
+        <div class="text-center mt-10">
+          <a href="/topclass" class="inline-flex items-center gap-2 font-body font-semibold text-brand-primary hover:text-brand-accent text-sm transition-colors border-b-2 border-brand-primary/30 hover:border-brand-primary pb-0.5">
+            Full Top Class Catalogue
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT TOP CLASS -->
+    <section class="py-20 lg:py-28 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest mb-4">
+              <span class="w-8 h-px bg-brand-primary"></span>
+              About Top Class
+            </div>
+            <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl lg:text-5xl mb-6 leading-tight">
+              Made in India,<br/>designed for the world's kitchens.
+            </h2>
+            <p class="font-body text-brand-muted text-base leading-relaxed mb-8">
+              Top Class is the ready-to-use flavour arm of our export house — trusted by HoReCa operators, food manufacturers and retail chains across multiple countries.
+            </p>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+              {['HoReCa focused', 'Retail-ready packs', 'Authentic recipes', 'Consistent quality', 'Flexible MOQs', 'Private label available'].map(item => (
+                <li class="flex items-center gap-2.5 font-body text-sm text-brand-dark font-medium">
+                  <svg class="w-4 h-4 text-brand-primary shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a href="/topclass/about" class="inline-flex items-center gap-2 bg-brand-dark hover:bg-brand-accent text-white font-body font-semibold text-sm px-7 py-3.5 rounded-full transition-all hover:scale-105 active:scale-95">
+              Learn more about Top Class
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+          </div>
+          <div class="relative">
+            <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+              <img src="https://brandbridge-exports.lovable.app/assets/topclass-hero-C3wKyO_l.jpg" alt="Top Class product range" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="absolute -bottom-4 -left-4 bg-brand-primary text-white px-5 py-3 rounded-2xl shadow-lg max-w-[220px]">
+              <p class="font-body text-xs font-semibold leading-snug">Bold flavors for professional kitchens</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE TOP CLASS -->
+    <section class="py-20 lg:py-28 bg-brand-light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+          <div class="inline-flex items-center gap-2 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest mb-4">
+            <span class="w-8 h-px bg-brand-primary"></span>
+            Why Top Class
+            <span class="w-8 h-px bg-brand-primary"></span>
+          </div>
+          <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl lg:text-5xl">
+            Flavour that scales with your business.
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {topclassFeatures.map(f => (
+            <div class="bg-white rounded-2xl p-7 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-stone-100">
+              <div class="w-11 h-11 bg-amber-50 rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={f.icon}/>
+                </svg>
+              </div>
+              <h3 class="font-display font-semibold text-brand-dark text-lg mb-2">{f.title}</h3>
+              <p class="font-body text-brand-muted text-sm leading-relaxed">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- GLOBAL REACH -->
+    <section class="py-16 bg-brand-light overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
+        <div class="inline-flex items-center gap-2 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest mb-3">
           <span class="w-8 h-px bg-brand-primary"></span>
-          Certifications
+          Global Reach
           <span class="w-8 h-px bg-brand-primary"></span>
         </div>
-        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl">Trusted compliance, end-to-end.</h2>
+        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl">Exporting to 30+ countries.</h2>
       </div>
+      <div class="relative overflow-hidden py-4">
+        <div class="marquee-track">
+          {[...countries, ...countries].map((c, i) => (
+            <div key={i} class="flex items-center gap-4 px-6 shrink-0">
+              <span class="w-1.5 h-1.5 bg-brand-primary rounded-full"></span>
+              <span class="font-body font-medium text-brand-dark text-sm whitespace-nowrap">{c}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-        {certs.map(cert => <CertBadge name={cert.name} subtitle={cert.subtitle} />)}
+    <!-- CERTIFICATIONS -->
+    <section class="py-20 lg:py-28 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center gap-2 text-brand-primary text-xs font-body font-semibold uppercase tracking-widest mb-4">
+            <span class="w-8 h-px bg-brand-primary"></span>
+            Certifications
+            <span class="w-8 h-px bg-brand-primary"></span>
+          </div>
+          <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl">Certified for international trade.</h2>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          {certs.map(cert => <CertBadge name={cert.name} subtitle={cert.subtitle} />)}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA BANNER -->
-  <section class="py-20 lg:py-28 bg-gradient-to-br from-brand-accent via-brand-primary to-amber-500 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10">
-      <div class="w-full h-full" style="background-image: radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 20%, white 1px, transparent 1px); background-size: 60px 60px;"></div>
-    </div>
-    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl mb-4">
-        Ready to source from India?
-      </h2>
-      <p class="font-body text-white/80 text-base sm:text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-        Tell us what you need and our export team will reply within 24 hours with samples, pricing and freight terms.
-      </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a
-          href="/citizen/contact"
-          class="inline-flex items-center gap-2 bg-white hover:bg-amber-50 text-brand-primary font-body font-bold text-sm px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 shadow-xl min-h-[52px]"
-        >
-          Send Export Inquiry
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
-        </a>
-        <a
-          href="/citizen/about"
-          class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 border border-white/40 text-white font-body font-semibold text-sm px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 min-h-[52px]"
-        >
-          About Citizen Foods
-        </a>
+    <!-- CTA -->
+    <section class="py-20 lg:py-28 bg-brand-dark relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <div class="w-full h-full" style="background-image: radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 20%, white 1px, transparent 1px); background-size: 60px 60px;"></div>
       </div>
-    </div>
-  </section>
+      <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl mb-4">
+          Source bold flavours from India.
+        </h2>
+        <p class="font-body text-white/80 text-base sm:text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+          Samples, pricing and logistics within 24 hours of inquiry.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/topclass/contact" class="inline-flex items-center gap-2 bg-brand-primary hover:bg-amber-600 text-white font-body font-bold text-sm px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 shadow-xl min-h-[52px]">
+            Send Top Class Inquiry
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+          <a href="/topclass/about" class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 border border-white/40 text-white font-body font-semibold text-sm px-8 py-4 rounded-full transition-all hover:scale-105 active:scale-95 min-h-[52px]">
+            About Top Class
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- end #brand-topclass -->
+
 </Layout>
