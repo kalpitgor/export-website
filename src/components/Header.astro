@@ -8,13 +8,13 @@ const defaultBrand = isTopclassPath ? 'topclass' : 'citizen';
 // Nav links — hrefs are placeholders, JS swaps them based on active brand
 const citizenNav = [
   { label: 'Home',     href: '/' },
-  { label: 'Products', href: '/citizen' },
+  { label: 'Products', href: '/citizen/products' },
   { label: 'About',    href: '/citizen/about' },
   { label: 'Contact',  href: '/citizen/contact' },
 ];
 const topclassNav = [
   { label: 'Home',     href: '/' },
-  { label: 'Products', href: '/topclass' },
+  { label: 'Products', href: '/topclass/products' },
   { label: 'About',    href: '/topclass/about' },
   { label: 'Contact',  href: '/topclass/contact' },
 ];
@@ -31,30 +31,30 @@ const topclassNav = [
           id="logo-citizen"
           data-brand="citizen"
           aria-label="Citizen Foods"
-          class="logo-btn flex items-center gap-2 px-2 py-1.5 rounded-xl transition-all duration-300 hover:bg-white/10 focus:outline-none"
+          class="logo-btn flex items-center transition-all duration-300 focus:outline-none"
         >
           <img
             src="/logo-citizen.png"
             alt="Citizen Foods"
-            class="h-9 w-auto object-contain transition-all duration-300"
+            class="h-12 w-auto object-contain transition-all duration-300"
             id="img-citizen"
           />
         </button>
 
         <!-- Divider -->
-        <span class="text-white/25 select-none text-xl font-thin">×</span>
+        <span class="text-white/25 select-none text-xl font-thin px-1">×</span>
 
         <!-- Top Class Logo -->
         <button
           id="logo-topclass"
           data-brand="topclass"
           aria-label="Top Class"
-          class="logo-btn flex items-center gap-2 px-2 py-1.5 rounded-xl transition-all duration-300 hover:bg-white/10 focus:outline-none"
+          class="logo-btn flex items-center transition-all duration-300 focus:outline-none"
         >
           <img
             src="/logo-topclass.png"
             alt="Top Class"
-            class="h-9 w-auto object-contain transition-all duration-300"
+            class="h-12 w-auto object-contain transition-all duration-300"
             id="img-topclass"
           />
         </button>
@@ -193,16 +193,11 @@ const topclassNav = [
       img.style.opacity = isCitizen ? '0.35' : '1';
     });
 
-    // Active logo button: subtle background highlight
-    document.getElementById('logo-citizen')?.classList.toggle('bg-white/10', isCitizen);
-    document.getElementById('logo-topclass')?.classList.toggle('bg-white/10', !isCitizen);
 
-    // Mobile brand buttons
-    document.querySelectorAll('.mobile-brand-btn').forEach(el => {
-      const b = (el as HTMLElement).dataset.brand;
-      el.classList.toggle('bg-white/15', b === brand);
-      el.classList.toggle('ring-1',      b === brand);
-      el.classList.toggle('ring-white/30', b === brand);
+    // Mobile brand buttons — dim inactive
+    document.querySelectorAll<HTMLElement>('.mobile-brand-btn').forEach(el => {
+      const active = el.dataset.brand === brand;
+      el.style.opacity = active ? '1' : '0.4';
     });
 
     // ── Update nav links ──
