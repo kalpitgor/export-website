@@ -6,36 +6,69 @@ const varieties = [
   {
     type: 'White Onion',
     color: 'from-amber-50 to-yellow-50',
+    border: 'border-amber-100',
     description: 'Mild, sweet flavour profile. Preferred for soups, snacks and seasoning blends.',
-    cuts: ['Flakes', 'Kibbled (15–35mm)', 'Chopped', 'Minced', 'Granules', 'Powder'],
+    heroImage: '/Dehydrated_white_onion.webp',
+    products: [
+      { name: 'Flakes',    img: '/white_onion_flakes.webp' },
+      { name: 'Chopped',   img: '/White_onion_chopped.webp' },
+      { name: 'Minced',    img: '/White_onion_minced.webp' },
+      { name: 'Granules',  img: '/White_onion_granules.webp' },
+      { name: 'Powder',    img: '/White_powder.webp' },
+    ],
   },
   {
     type: 'Red Onion',
     color: 'from-rose-50 to-pink-50',
+    border: 'border-rose-100',
     description: 'Rich colour, pungent aroma. Ideal for flavour-forward applications.',
-    cuts: ['Slices', 'Kibbled (15–35mm)', 'Chopped', 'Minced', 'Granules', 'Powder'],
+    heroImage: '/Dehydrated_red_onion.webp',
+    products: [
+      { name: 'Flakes',    img: '/Red_onion_flakes.webp' },
+      { name: 'Chopped',   img: '/Red_onion_chopped.webp' },
+      { name: 'Minced',    img: '/Red_onion_minced.webp' },
+      { name: 'Granules',  img: '/Red_onion_granules.webp' },
+      { name: 'Powder',    img: '/Red_onion_powder.webp' },
+    ],
   },
   {
     type: 'Pink Onion',
     color: 'from-pink-50 to-rose-50',
+    border: 'border-pink-100',
     description: 'Delicate balance of sweetness and bite. High-value export variety.',
-    cuts: ['Slices', 'Kibbled (15–35mm)', 'Chopped', 'Minced', 'Granules', 'Powder'],
+    heroImage: '/Dehydrated_pink.webp',
+    products: [
+      { name: 'Flakes',    img: '/Dehydrated_pink_onion_flakes.webp' },
+      { name: 'Chopped',   img: '/Pink_onion_chopped.webp' },
+      { name: 'Minced',    img: '/Pink_onion_minced.webp' },
+      { name: 'Granules',  img: '/Pink_onion_granules.webp' },
+      { name: 'Powder',    img: '/Pink_onion_powder.webp' },
+    ],
   },
   {
     type: 'Toasted Onion',
     color: 'from-orange-50 to-amber-50',
+    border: 'border-orange-100',
     description: 'Deep caramelized notes. Perfect for instant noodles, snacks and ready meals.',
-    cuts: ['Flakes', 'Large Chopped', 'Chopped', 'Minced', 'Granules', 'Powder'],
+    heroImage: null,
+    products: [
+      { name: 'Flakes',         img: null },
+      { name: 'Large Chopped',  img: null },
+      { name: 'Chopped',        img: null },
+      { name: 'Minced',         img: null },
+      { name: 'Granules',       img: null },
+      { name: 'Powder',         img: null },
+    ],
   },
 ];
 
 const specs = [
-  { label: 'Moisture', value: '≤5%' },
-  { label: 'Color', value: 'Natural / Characteristic' },
-  { label: 'Shelf Life', value: '24 months' },
-  { label: 'Packaging', value: 'HDPE bags, cartons, drums' },
-  { label: 'Compliance', value: 'FSSAI, FDA, HACCP' },
-  { label: 'Min. Order', value: '1 MT' },
+  { label: 'Moisture',    value: '≤5%' },
+  { label: 'Color',       value: 'Natural' },
+  { label: 'Shelf Life',  value: '24 months' },
+  { label: 'Packaging',   value: 'HDPE / Drums' },
+  { label: 'Compliance',  value: 'FSSAI, FDA, HACCP' },
+  { label: 'Min. Order',  value: '1 MT' },
 ];
 ---
 
@@ -74,7 +107,7 @@ const specs = [
     </div>
   </section>
 
-  <!-- PRODUCT SPECS STRIP -->
+  <!-- SPECS STRIP -->
   <section class="bg-brand-primary/10 border-y border-brand-primary/20 py-6">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -88,22 +121,60 @@ const specs = [
     </div>
   </section>
 
-  <!-- VARIETIES -->
+  <!-- VARIETIES WITH PRODUCT IMAGES -->
   <section class="py-20 bg-brand-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14">
-        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl mb-3">4 Varieties. 6 Cut Sizes Each.</h2>
+        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl mb-3">4 Varieties. Every Cut Size.</h2>
         <p class="font-body text-brand-muted text-base max-w-xl mx-auto">Every variety available in the cuts your buyers need.</p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div class="space-y-16">
         {varieties.map(v => (
-          <div class={`bg-gradient-to-br ${v.color} border border-stone-200 rounded-2xl p-7 hover:shadow-md transition-all`}>
-            <h3 class="font-display font-bold text-brand-dark text-xl mb-2">{v.type}</h3>
-            <p class="font-body text-brand-muted text-sm mb-4 leading-relaxed">{v.description}</p>
-            <div class="flex flex-wrap gap-2">
-              {v.cuts.map(cut => (
-                <span class="bg-white/70 text-brand-dark text-xs font-body font-medium px-3 py-1.5 rounded-full border border-white/80 shadow-sm">{cut}</span>
+          <div class={`bg-gradient-to-br ${v.color} border ${v.border} rounded-3xl p-7 lg:p-10`}>
+            <!-- Variety header -->
+            <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-8">
+              {v.heroImage ? (
+                <div class="w-24 h-24 rounded-2xl overflow-hidden shrink-0 shadow-md border border-white/60">
+                  <img src={v.heroImage} alt={v.type} class="w-full h-full object-cover" loading="lazy" />
+                </div>
+              ) : (
+                <div class="w-24 h-24 rounded-2xl bg-white/50 shrink-0 flex items-center justify-center border border-white/60">
+                  <svg class="w-8 h-8 text-brand-primary/40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909"/>
+                  </svg>
+                </div>
+              )}
+              <div>
+                <h3 class="font-display font-bold text-brand-dark text-2xl sm:text-3xl mb-1">{v.type}</h3>
+                <p class="font-body text-brand-muted text-sm leading-relaxed max-w-xl">{v.description}</p>
+              </div>
+            </div>
+
+            <!-- Product image grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+              {v.products.map(p => (
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-white/80 hover:shadow-md hover:-translate-y-1 transition-all">
+                  {p.img ? (
+                    <div class="aspect-square overflow-hidden bg-stone-50">
+                      <img
+                        src={p.img}
+                        alt={`${v.type} ${p.name}`}
+                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+                  ) : (
+                    <div class="aspect-square bg-stone-100 flex items-center justify-center">
+                      <svg class="w-8 h-8 text-stone-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909"/>
+                      </svg>
+                    </div>
+                  )}
+                  <div class="p-3 text-center">
+                    <span class="font-body font-semibold text-brand-dark text-sm">{p.name}</span>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
@@ -128,9 +199,9 @@ const specs = [
           </thead>
           <tbody>
             {[
-              { t: 'White Onion', v: [true, true, true, true, true, true] },
-              { t: 'Red Onion', v: [true, true, true, true, true, true] },
-              { t: 'Pink Onion', v: [true, true, true, true, true, true] },
+              { t: 'White Onion',   v: [true, true, true, true, true, true] },
+              { t: 'Red Onion',     v: [true, true, true, true, true, true] },
+              { t: 'Pink Onion',    v: [true, true, true, true, true, true] },
               { t: 'Toasted Onion', v: [true, true, true, true, true, true] },
             ].map((row, i) => (
               <tr class={i % 2 === 0 ? 'bg-white' : 'bg-stone-50'}>
