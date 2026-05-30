@@ -3,46 +3,33 @@ import Layout from '../../layouts/Layout.astro';
 import InquiryForm from '../../components/InquiryForm.astro';
 import CertBadge from '../../components/CertBadge.astro';
 
-const onions = [
-  {
-    section: 'White Onion',
-    items: [
-      { name: 'Flakes',    img: '/white_onion_flakes.webp' },
-      { name: 'Chopped',   img: '/White_onion_chopped.webp' },
-      { name: 'Minced',    img: '/White_onion_minced.webp' },
-      { name: 'Granules',  img: '/White_onion_granules.webp' },
-      { name: 'Powder',    img: '/White_powder.webp' },
-    ],
-  },
-  {
-    section: 'Red Onion',
-    items: [
-      { name: 'Flakes',    img: '/Red_onion_flakes.webp' },
-      { name: 'Chopped',   img: '/Red_onion_chopped.webp' },
-      { name: 'Minced',    img: '/Red_onion_minced.webp' },
-      { name: 'Granules',  img: '/Red_onion_granules.webp' },
-      { name: 'Powder',    img: '/Red_onion_powder.webp' },
-    ],
-  },
-  {
-    section: 'Pink Onion',
-    items: [
-      { name: 'Flakes',    img: '/Dehydrated_pink_onion_flakes.webp' },
-      { name: 'Chopped',   img: '/Pink_onion_chopped.webp' },
-      { name: 'Minced',    img: '/Pink_onion_minced.webp' },
-      { name: 'Granules',  img: '/Pink_onion_granules.webp' },
-      { name: 'Powder',    img: '/Pink_onion_powder.webp' },
-    ],
-  },
-];
-
-const garlic = [
-  { name: 'Whole / Dehydrated', img: '/Dehydrated_garlic.webp' },
-  { name: 'Chopped',            img: '/Dehydrated_Garlic_chopped.webp' },
-  { name: 'Flakes',             img: '/Dehydrated_garlic_flakes.webp' },
-  { name: 'Minced',             img: '/Dehydrated_garlic_minced.webp' },
-  { name: 'Granules',           img: '/Garlic_granules.webp' },
-  { name: 'Powder',             img: '/garlic_powder.webp' },
+// All products flat — image where available, label-only for powders
+const products = [
+  // ── White Onion ──
+  { name: 'White Onion Flakes',    label: 'White Onion',  img: '/white_onion_flakes.webp' },
+  { name: 'White Onion Chopped',   label: 'White Onion',  img: '/White_onion_chopped.webp' },
+  { name: 'White Onion Minced',    label: 'White Onion',  img: '/White_onion_minced.webp' },
+  { name: 'White Onion Granules',  label: 'White Onion',  img: '/White_onion_granules.webp' },
+  { name: 'White Onion Powder',    label: 'White Onion',  img: '/White_powder.webp' },
+  // ── Red Onion ──
+  { name: 'Red Onion Flakes',      label: 'Red Onion',    img: '/Red_onion_flakes.webp' },
+  { name: 'Red Onion Chopped',     label: 'Red Onion',    img: '/Red_onion_chopped.webp' },
+  { name: 'Red Onion Minced',      label: 'Red Onion',    img: '/Red_onion_minced.webp' },
+  { name: 'Red Onion Granules',    label: 'Red Onion',    img: '/Red_onion_granules.webp' },
+  { name: 'Red Onion Powder',      label: 'Red Onion',    img: '/Red_onion_powder.webp' },
+  // ── Pink Onion ──
+  { name: 'Pink Onion Flakes',     label: 'Pink Onion',   img: '/Dehydrated_pink_onion_flakes.webp' },
+  { name: 'Pink Onion Chopped',    label: 'Pink Onion',   img: '/Pink_onion_chopped.webp' },
+  { name: 'Pink Onion Minced',     label: 'Pink Onion',   img: '/Pink_onion_minced.webp' },
+  { name: 'Pink Onion Granules',   label: 'Pink Onion',   img: '/Pink_onion_granules.webp' },
+  { name: 'Pink Onion Powder',     label: 'Pink Onion',   img: '/Pink_onion_powder.webp' },
+  // ── Garlic ──
+  { name: 'Garlic Whole',          label: 'Garlic',       img: '/Dehydrated_garlic.webp' },
+  { name: 'Garlic Chopped',        label: 'Garlic',       img: '/Dehydrated_Garlic_chopped.webp' },
+  { name: 'Garlic Flakes',         label: 'Garlic',       img: '/Dehydrated_garlic_flakes.webp' },
+  { name: 'Garlic Minced',         label: 'Garlic',       img: '/Dehydrated_garlic_minced.webp' },
+  { name: 'Garlic Granules',       label: 'Garlic',       img: '/Garlic_granules.webp' },
+  { name: 'Garlic Powder',         label: 'Garlic',       img: '/garlic_powder.webp' },
 ];
 
 const powders = [
@@ -51,6 +38,8 @@ const powders = [
   'Curry Powder', 'Tamarind Powder', 'Green Chilli Powder', 'Amchur Powder',
   'Ginger Powder', 'Beet Root Powder', 'Red Chilli Powder', 'Potato Powder',
 ];
+
+const toastedCuts = ['Flakes', 'Large Chopped', 'Chopped', 'Minced', 'Granules', 'Powder'];
 
 const specs = [
   { label: 'Moisture',   value: '≤5%' },
@@ -86,11 +75,9 @@ const specs = [
       <p class="animate-fade-up animate-fade-up-delay-2 font-body text-white/70 text-base sm:text-lg max-w-xl leading-relaxed mb-8">
         Dehydrated onions, garlic and vegetable powders — precision-dried for consistent colour, aroma and moisture across every export shipment.
       </p>
-      <div class="flex flex-wrap gap-4">
-        <a href="#inquiry" class="inline-flex items-center gap-2 bg-brand-primary hover:bg-amber-600 text-white font-body font-semibold text-sm px-7 py-3.5 rounded-full transition-all hover:scale-105">
-          Request Sample / Quote
-        </a>
-      </div>
+      <a href="#inquiry" class="inline-flex items-center gap-2 bg-brand-primary hover:bg-amber-600 text-white font-body font-semibold text-sm px-7 py-3.5 rounded-full transition-all hover:scale-105">
+        Request Sample / Quote
+      </a>
     </div>
   </section>
 
@@ -108,121 +95,63 @@ const specs = [
     </div>
   </section>
 
-  <!-- ── DEHYDRATED ONIONS ── -->
-  <section id="onions" class="py-20 bg-brand-light">
+  <!-- ALL PRODUCTS GRID -->
+  <section class="py-20 bg-brand-light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3 mb-12">
-        <div class="w-1 h-10 bg-brand-primary rounded-full"></div>
-        <div>
-          <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl">Dehydrated Onions</h2>
-          <p class="font-body text-brand-muted text-sm mt-1">White, Red & Pink varieties — every cut size</p>
-        </div>
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl mb-3">Complete Product Range</h2>
+        <p class="font-body text-brand-muted text-base max-w-xl mx-auto">
+          Every product precision-processed from fresh, locally-sourced Indian produce.
+        </p>
       </div>
 
-      <div class="space-y-12">
-        {onions.map(group => (
-          <div>
-            <h3 class="font-display font-semibold text-brand-dark text-xl mb-5 flex items-center gap-2">
-              <span class="w-5 h-0.5 bg-brand-primary/50 rounded"></span>
-              {group.section}
-            </h3>
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-              {group.items.map(p => (
-                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                  <div class="aspect-square overflow-hidden bg-stone-50">
-                    <img
-                      src={p.img}
-                      alt={`${group.section} ${p.name}`}
-                      class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div class="p-3 text-center">
-                    <span class="font-body font-semibold text-brand-dark text-sm">{p.name}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-
-        <!-- Toasted Onion (no images) -->
-        <div>
-          <h3 class="font-display font-semibold text-brand-dark text-xl mb-5 flex items-center gap-2">
-            <span class="w-5 h-0.5 bg-brand-primary/50 rounded"></span>
-            Toasted Onion
-          </h3>
-          <div class="bg-gradient-to-br from-orange-50 to-amber-50 border border-amber-100 rounded-2xl p-6">
-            <p class="font-body text-brand-muted text-sm mb-4">Deep caramelized notes. Perfect for instant noodles, snacks and ready meals.</p>
-            <div class="flex flex-wrap gap-2">
-              {['Flakes', 'Large Chopped', 'Chopped', 'Minced', 'Granules', 'Powder'].map(cut => (
-                <span class="bg-white text-brand-dark text-sm font-body font-medium px-4 py-2 rounded-xl border border-amber-100">{cut}</span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── DEHYDRATED GARLIC ── -->
-  <section id="garlic" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3 mb-12">
-        <div class="w-1 h-10 bg-brand-primary rounded-full"></div>
-        <div>
-          <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl">Dehydrated Garlic</h2>
-          <p class="font-body text-brand-muted text-sm mt-1">6 cut sizes — whole clove to ultra-fine powder</p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {garlic.map((item, i) => (
+      <!-- Image product grid (onions + garlic) -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mb-10">
+        {products.map(p => (
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-            <div class="aspect-[4/3] overflow-hidden bg-stone-50">
+            <div class="aspect-square overflow-hidden bg-stone-50">
               <img
-                src={item.img}
-                alt={`Dehydrated Garlic ${item.name}`}
+                src={p.img}
+                alt={p.name}
                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 loading="lazy"
               />
             </div>
-            <div class="p-5">
-              <div class="flex items-center gap-3">
-                <div class="w-7 h-7 bg-amber-50 rounded-lg flex items-center justify-center shrink-0">
-                  <span class="font-display font-bold text-brand-primary text-xs">{String(i + 1).padStart(2, '0')}</span>
-                </div>
-                <h3 class="font-display font-semibold text-brand-dark text-lg">{item.name}</h3>
-              </div>
+            <div class="px-3 py-3">
+              <span class="block font-body font-semibold text-brand-dark text-sm leading-snug">{p.name}</span>
+              <span class="inline-block mt-1 text-xs font-body text-white bg-brand-primary/80 px-2 py-0.5 rounded-full">{p.label}</span>
             </div>
           </div>
         ))}
       </div>
-    </div>
-  </section>
 
-  <!-- ── VEGETABLE POWDERS & FLAKES ── -->
-  <section id="powders" class="py-20 bg-brand-light">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-3 mb-12">
-        <div class="w-1 h-10 bg-brand-primary rounded-full"></div>
-        <div>
-          <h2 class="font-display font-bold text-brand-dark text-3xl sm:text-4xl">Vegetable Powders & Flakes</h2>
-          <p class="font-body text-brand-muted text-sm mt-1">16+ products — colour-stable, aroma-rich and export-grade</p>
+      <!-- Toasted Onion (no images) -->
+      <div class="bg-gradient-to-br from-orange-50 to-amber-50 border border-amber-100 rounded-2xl p-6 mb-10">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="font-display font-bold text-brand-dark text-lg">Toasted Onion</span>
+          <span class="text-xs font-body bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">6 cuts</span>
+        </div>
+        <p class="font-body text-brand-muted text-sm mb-4">Deep caramelized notes. Perfect for instant noodles, snacks and ready meals.</p>
+        <div class="flex flex-wrap gap-2">
+          {toastedCuts.map(cut => (
+            <span class="bg-white text-brand-dark text-sm font-body font-medium px-4 py-2 rounded-xl border border-amber-100">{cut}</span>
+          ))}
         </div>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-        {powders.map(item => (
-          <div class="bg-white border border-stone-100 rounded-2xl p-5 text-center hover:shadow-md hover:-translate-y-0.5 hover:border-brand-primary/30 transition-all">
-            <div class="w-10 h-10 bg-amber-50 rounded-xl mx-auto mb-3 flex items-center justify-center">
-              <svg class="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375"/>
-              </svg>
+      <!-- Vegetable Powders & Flakes (no images) -->
+      <div class="bg-white border border-stone-100 rounded-2xl p-6">
+        <div class="flex items-center gap-2 mb-5">
+          <span class="font-display font-bold text-brand-dark text-lg">Vegetable Powders & Flakes</span>
+          <span class="text-xs font-body bg-stone-100 text-stone-600 px-2 py-0.5 rounded-full">16+ products</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          {powders.map(item => (
+            <div class="bg-brand-light border border-stone-100 rounded-xl px-4 py-3 text-center hover:border-brand-primary/30 hover:bg-amber-50/50 transition-all">
+              <span class="font-body text-sm font-medium text-brand-dark">{item}</span>
             </div>
-            <span class="font-body font-semibold text-brand-dark text-sm">{item}</span>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -244,7 +173,7 @@ const specs = [
     </div>
   </section>
 
-  <!-- INQUIRY FORM -->
+  <!-- INQUIRY -->
   <section id="inquiry" class="py-20 bg-brand-light">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10">

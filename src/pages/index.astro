@@ -173,14 +173,55 @@ const certs = [
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          <ProductCard category="Citizen Foods" title="Vegetable Powders & Flakes" description="Onion, garlic, tomato, ginger and more. Color-stable, aroma-rich, export-grade." href="/citizen/powders-flakes" />
-          <ProductCard category="Citizen Foods" title="Dehydrated Onion Range" description="Minced, chopped, sliced, powder & flakes. White, Red, Pink and Toasted." href="/citizen/onions" />
-          <ProductCard category="Citizen Foods" title="Garlic & Specialty Items" description="Garlic powder, flakes, blended spice bases. Strong aroma and stable shelf life." href="/citizen/garlic" />
+          <!-- Dehydrated Onions -->
+          <a href="/citizen/products" class="group bg-white rounded-3xl overflow-hidden shadow-sm border border-stone-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div class="grid grid-cols-2 gap-0.5 bg-stone-100">
+              <img src="/Dehydrated_red_onion.webp"   alt="Red Onion"   class="aspect-square object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+              <img src="/Red_onion_chopped.webp"       alt="Red Chopped" class="aspect-square object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+              <img src="/white_onion_flakes.webp"      alt="White Flakes" class="aspect-square object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+              <img src="/Dehydrated_pink.webp"         alt="Pink Onion"  class="aspect-square object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+            </div>
+            <div class="p-6">
+              <span class="text-xs font-body font-semibold uppercase tracking-wider text-brand-primary">Citizen Foods</span>
+              <h3 class="font-display font-bold text-brand-dark text-xl mt-1 mb-2">Dehydrated Onion Range</h3>
+              <p class="font-body text-brand-muted text-sm leading-relaxed">White, Red & Pink — flakes, chopped, minced, granules and powder.</p>
+            </div>
+          </a>
+
+          <!-- Garlic -->
+          <a href="/citizen/products" class="group bg-white rounded-3xl overflow-hidden shadow-sm border border-stone-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div class="grid grid-cols-2 gap-0.5 bg-stone-100">
+              <img src="/Dehydrated_garlic.webp"          alt="Garlic Whole"   class="aspect-square object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+              <img src="/Dehydrated_Garlic_chopped.webp"  alt="Garlic Chopped" class="aspect-square object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+              <img src="/Garlic_granules.webp"            alt="Garlic Granules" class="aspect-square object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+              <img src="/garlic_powder.webp"              alt="Garlic Powder"  class="aspect-square object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+            </div>
+            <div class="p-6">
+              <span class="text-xs font-body font-semibold uppercase tracking-wider text-brand-primary">Citizen Foods</span>
+              <h3 class="font-display font-bold text-brand-dark text-xl mt-1 mb-2">Dehydrated Garlic</h3>
+              <p class="font-body text-brand-muted text-sm leading-relaxed">Whole, chopped, flakes, minced, granules and powder — strong aroma, stable shelf life.</p>
+            </div>
+          </a>
+
+          <!-- Powders & Flakes -->
+          <a href="/citizen/products" class="group bg-white rounded-3xl overflow-hidden shadow-sm border border-stone-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div class="grid grid-cols-2 gap-0.5 bg-stone-100">
+              <img src="/Pink_onion_powder.webp"      alt="Onion Powder"  class="aspect-square object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+              <img src="/Red_onion_powder.webp"       alt="Red Powder"    class="aspect-square object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+              <img src="/Dehydrated_garlic_flakes.webp" alt="Garlic Flakes" class="aspect-square object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+              <img src="/White_powder.webp"           alt="White Powder"  class="aspect-square object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+            </div>
+            <div class="p-6">
+              <span class="text-xs font-body font-semibold uppercase tracking-wider text-brand-primary">Citizen Foods</span>
+              <h3 class="font-display font-bold text-brand-dark text-xl mt-1 mb-2">Vegetable Powders & Flakes</h3>
+              <p class="font-body text-brand-muted text-sm leading-relaxed">16+ dehydrated products — coriander, carrot, spinach, ginger, chilli and more.</p>
+            </div>
+          </a>
         </div>
 
         <div class="text-center mt-10">
-          <a href="/citizen" class="inline-flex items-center gap-2 font-body font-semibold text-brand-primary hover:text-brand-accent text-sm transition-colors border-b-2 border-brand-primary/30 hover:border-brand-primary pb-0.5">
-            Full Citizen Catalogue
+          <a href="/citizen/products" class="inline-flex items-center gap-2 font-body font-semibold text-brand-primary hover:text-brand-accent text-sm transition-colors border-b-2 border-brand-primary/30 hover:border-brand-primary pb-0.5">
+            View All Products
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
