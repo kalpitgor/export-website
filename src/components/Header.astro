@@ -7,16 +7,16 @@ const defaultBrand = isTopclassPath ? 'topclass' : 'citizen';
 
 // Nav links — hrefs are placeholders, JS swaps them based on active brand
 const citizenNav = [
-  { label: 'Home',     href: '/' },
-  { label: 'Products', href: '/citizen/products' },
-  { label: 'About',    href: '/citizen/about' },
-  { label: 'Contact',  href: '/citizen/contact' },
+  { label: 'Home',     href: '/',               active: currentPath === '/' },
+  { label: 'Products', href: '/citizen',         active: currentPath.startsWith('/citizen') && !currentPath.startsWith('/citizen/about') && !currentPath.startsWith('/citizen/contact') },
+  { label: 'About',    href: '/citizen/about',   active: currentPath.startsWith('/citizen/about') },
+  { label: 'Contact',  href: '/citizen/contact', active: currentPath.startsWith('/citizen/contact') },
 ];
 const topclassNav = [
-  { label: 'Home',     href: '/' },
-  { label: 'Products', href: '/topclass/products' },
-  { label: 'About',    href: '/topclass/about' },
-  { label: 'Contact',  href: '/topclass/contact' },
+  { label: 'Home',     href: '/',                active: currentPath === '/' },
+  { label: 'Products', href: '/topclass',         active: currentPath.startsWith('/topclass') && !currentPath.startsWith('/topclass/about') && !currentPath.startsWith('/topclass/contact') },
+  { label: 'About',    href: '/topclass/about',   active: currentPath.startsWith('/topclass/about') },
+  { label: 'Contact',  href: '/topclass/contact', active: currentPath.startsWith('/topclass/contact') },
 ];
 ---
 
@@ -67,7 +67,7 @@ const topclassNav = [
             data-nav-label={link.label}
             href={link.href}
             class={`nav-link text-sm font-body font-medium transition-colors ${
-              currentPath === link.href ? 'text-brand-primary' : 'text-white/80 hover:text-white'
+              link.active ? 'text-brand-primary' : 'text-white/80 hover:text-white'
             }`}
           >
             {link.label}
