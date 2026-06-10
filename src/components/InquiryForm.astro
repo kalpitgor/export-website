@@ -199,7 +199,7 @@ const productOptions = brand === 'citizen'
 
   <!-- Error message -->
   <div id="form-error" class="hidden bg-red-50 border border-red-200 rounded-xl p-5">
-    <p class="font-body text-red-700 text-sm">Something went wrong. Please try again or email us directly at <a href="mailto:exports@citizenfoods.in" class="font-semibold underline">exports@citizenfoods.in</a>.</p>
+    <p class="font-body text-red-700 text-sm">Something went wrong. Please try again or email us directly at <a href={`mailto:${brand === 'citizen' ? 'info@citizenvegexports.com' : 'info@top-class.in'}`} class="font-semibold underline">{brand === 'citizen' ? 'info@citizenvegexports.com' : 'info@top-class.in'}</a>.</p>
   </div>
 
   <p class="text-xs text-brand-muted font-body">
