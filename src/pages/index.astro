@@ -3,7 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import StatCounter from '../components/StatCounter.astro';
 import ProductCard from '../components/ProductCard.astro';
 import CertBadge from '../components/CertBadge.astro';
-import { range, tcSrc, tcSrcset } from '../data/topclass-images';
+import { range, tcSmall, tcSrc, tcSrcset } from '../data/topclass-images';
+import { cSmall } from '../data/citizen-images';
 
 const countries = [
   'United States','United Kingdom','Germany','France','Netherlands','Italy','Spain',
@@ -174,9 +175,9 @@ const certs = [
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          <ProductCard category="Citizen Veg Exports" title="Vegetable Powders & Flakes" description="Onion, garlic, tomato, ginger and more. Color-stable, aroma-rich, export-grade." href="/citizen/powders-flakes" />
-          <ProductCard category="Citizen Veg Exports" title="Dehydrated Onion Range" description="Minced, chopped, sliced, powder & flakes. White, Red, Pink and Toasted." href="/citizen/onions" />
-          <ProductCard category="Citizen Veg Exports" title="Garlic & Specialty Items" description="Garlic powder, flakes, blended spice bases. Strong aroma and stable shelf life." href="/citizen/garlic" />
+          <ProductCard category="Citizen Veg Exports" title="Vegetable Powders & Flakes" image={cSmall('powders-flakes/carrot-powder')} description="Onion, garlic, tomato, ginger and more. Color-stable, aroma-rich, export-grade." href="/citizen/powders-flakes" />
+          <ProductCard category="Citizen Veg Exports" title="Dehydrated Onion Range" image={cSmall('onions/red-onion-flakes')} description="Minced, chopped, sliced, powder & flakes. White, Red, Pink and Toasted." href="/citizen/onions" />
+          <ProductCard category="Citizen Veg Exports" title="Garlic & Specialty Items" image={cSmall('garlic/garlic-flakes')} description="Garlic powder, flakes, blended spice bases. Strong aroma and stable shelf life." href="/citizen/garlic" />
         </div>
 
         <div class="text-center mt-10">
@@ -413,9 +414,9 @@ const certs = [
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          <ProductCard category="Top Class" title="Sauces & Condiments" description="Signature taste solutions. Multiple pack sizes from sachets to 5L. Red, Green, Soya, Vinegar, Ketchup & Schezwan." href="/topclass/sauces" />
-          <ProductCard category="Top Class" title="Pastes" description="Kitchen-ready garlic and ginger garlic pastes. Available in 200g to 5kg packs." href="/topclass/pastes" />
-          <ProductCard category="Top Class" title="Masalas & Seasonings" description="Snack-grade seasoning blends — Peri Peri, Chat Masala, Kurkure & Fryums Masala." href="/topclass/masalas" />
+          <ProductCard category="Top Class" title="Sauces & Condiments" image={tcSmall(range.sauceBottles)} description="Signature taste solutions. Multiple pack sizes from sachets to 5L. Red, Green, Soya, Vinegar, Ketchup & Schezwan." href="/topclass/sauces" />
+          <ProductCard category="Top Class" title="Pastes" image={tcSmall(range.pastes)} description="Kitchen-ready garlic and ginger garlic pastes. Available in 200g to 5kg packs." href="/topclass/pastes" />
+          <ProductCard category="Top Class" title="Masalas & Seasonings" image={cSmall('masalas/peri-peri-masala')} description="Snack-grade seasoning blends — Peri Peri, Chat Masala, Kurkure & Fryums Masala." href="/topclass/masalas" />
         </div>
 
         <div class="text-center mt-10">

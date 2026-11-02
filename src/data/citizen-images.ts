@@ -15,6 +15,9 @@ export const friedOnions = [
   { name: 'Pink — Coated Fried',      img: cSmall('fried-onion/pink-onion-coated-fried') },
 ];
 
+// No toasted-onion photos yet, so the Toasted Onion sections show the closest fried-onion shots.
+export const toastedOnionPhotos = [friedOnions[1], friedOnions[4], friedOnions[2]];
+
 // Vegetable powders & flakes, keyed by the product name shown on the site.
 // Products without a photo yet (e.g. Spinach Powder) fall back to an icon.
 export const powderImages: Record<string, string> = {

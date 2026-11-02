@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import InquiryForm from '../../components/InquiryForm.astro';
 import CertBadge from '../../components/CertBadge.astro';
-import { friedOnions, powderImages } from '../../data/citizen-images';
+import { friedOnions, powderImages, toastedOnionPhotos } from '../../data/citizen-images';
 
 const onions = [
   {
@@ -159,6 +159,13 @@ const specs = [
             Toasted Onion
           </h3>
           <div class="bg-gradient-to-br from-orange-50 to-amber-50 border border-amber-100 rounded-2xl p-6">
+            <div class="grid grid-cols-3 gap-3 mb-5">
+              {toastedOnionPhotos.map(p => (
+                <div class="aspect-square rounded-xl overflow-hidden bg-white border border-amber-100">
+                  <img src={p.img} alt={`Toasted onion — ${p.name}`} class="w-full h-full object-cover" loading="lazy" decoding="async" />
+                </div>
+              ))}
+            </div>
             <p class="font-body text-brand-muted text-sm mb-4">Deep caramelized notes. Perfect for instant noodles, snacks and ready meals.</p>
             <div class="flex flex-wrap gap-2">
               {['Flakes', 'Large Chopped', 'Chopped', 'Minced', 'Granules', 'Powder'].map(cut => (
