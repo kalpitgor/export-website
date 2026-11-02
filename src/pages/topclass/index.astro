@@ -18,10 +18,10 @@ const pastes = [
 ];
 
 const masalas = [
-  { name: 'Peri Peri Masala', desc: 'Bold, spicy blend inspired by the iconic peri peri flavour profile.' },
-  { name: 'Chat Masala', desc: 'Tangy-spicy classic seasoning for snacks, chaats and street food.' },
+  { name: 'Peri Peri Masala', img: '/topclass/masala-peri-peri.webp', desc: 'Bold, spicy blend inspired by the iconic peri peri flavour profile.' },
+  { name: 'Chat Masala', img: '/topclass/masala-chat.webp', desc: 'Tangy-spicy classic seasoning for snacks, chaats and street food.' },
   { name: 'Kurkure Masala', desc: 'Proprietary spice blend for extruded snacks and puffed products.' },
-  { name: 'Fryums Masala', desc: 'Custom-blended seasoning for fryums and fried snack coatings.' },
+  { name: 'Fryums Masala', img: '/topclass/masala-fryums.webp', desc: 'Custom-blended seasoning for fryums and fried snack coatings.' },
 ];
 ---
 
@@ -96,6 +96,7 @@ const masalas = [
         <ProductCard
           category="Top Class"
           title="Masalas & Seasonings"
+          image="/topclass/masala-peri-peri.webp"
           description="Snack-grade seasoning blends — Peri Peri, Chat Masala, Kurkure & Fryums Masala."
           href="/topclass/masalas"
         />
@@ -201,9 +202,16 @@ const masalas = [
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {masalas.map(m => (
-            <div class="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-100 rounded-2xl p-6 hover:shadow-md transition-all">
+            <div class="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-100 rounded-2xl overflow-hidden hover:shadow-md transition-all">
+              {m.img && (
+                <div class="aspect-[4/3] overflow-hidden bg-stone-100">
+                  <img src={m.img} alt={m.name} class="w-full h-full object-cover" loading="lazy" />
+                </div>
+              )}
+              <div class="p-6">
               <h4 class="font-display font-bold text-brand-dark text-base mb-2">{m.name}</h4>
               <p class="font-body text-brand-muted text-sm leading-relaxed">{m.desc}</p>
+              </div>
             </div>
           ))}
         </div>
