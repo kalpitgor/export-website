@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.DS_Store
+
+# Full-resolution source photos (6000px). Web sizes are generated into public/ by
+# scripts/optimize-topclass-images.mjs and committed from there.
+images-src/
