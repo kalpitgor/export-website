@@ -1,0 +1,62 @@
+---
+import { tcSmall, tcSrc, tcSrcset, type TcImage } from '../data/topclass-images';
+
+interface Props {
+  images: TcImage[];
+  alt: string;
+}
+
+const { images, alt } = Astro.props;
+const [first] = images;
+---
+
+<div data-gallery>
+  <div class="aspect-[3/2] overflow-hidden bg-white">
+    <img
+      data-gallery-main
+      src={tcSrc(first.path)}
+      srcset={tcSrcset(first.path)}
+      sizes="(min-width: 1024px) 40vw, 100vw"
+      alt={`${alt} — ${first.label}`}
+      class="w-full h-full object-cover"
+      loading="lazy"
+      decoding="async"
+      width="1600"
+      height="1067"
+    />
+  </div>
+  {images.length > 1 && (
+    <div class="flex flex-wrap gap-2 px-4 pt-3">
+      {images.map((img, i) => (
+        <button
+          type="button"
+          data-gallery-thumb
+          data-src={tcSrc(img.path)}
+          data-srcset={tcSrcset(img.path)}
+          data-alt={`${alt} — ${img.label}`}
+          aria-label={`Show ${img.label}`}
+          aria-pressed={i === 0 ? 'true' : 'false'}
+          class="shrink-0 w-20 rounded-lg overflow-hidden border-2 border-transparent bg-white aria-pressed:border-brand-primary hover:border-brand-primary/50 transition-colors"
+        >
+          <img src={tcSmall(img.path)} alt="" class="w-full aspect-[3/2] object-cover" loading="lazy" decoding="async" width="640" height="427" />
+          <span class="block text-[10px] leading-tight font-body text-brand-muted px-1 py-1 truncate">{img.label}</span>
+        </button>
+      ))}
+    </div>
+  )}
+</div>
+
+<script>
+  document.addEventListener('click', (e) => {
+    const thumb = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-gallery-thumb]');
+    if (!thumb) return;
+    const gallery = thumb.closest('[data-gallery]')!;
+    const main = gallery.querySelector<HTMLImageElement>('[data-gallery-main]')!;
+    main.srcset = thumb.dataset.srcset!;
+    main.src = thumb.dataset.src!;
+    main.alt = thumb.dataset.alt!;
+    gallery.querySelectorAll('[data-gallery-thumb]').forEach((t) =>
+      t.setAttribute('aria-pressed', String(t === thumb)),
+    );
+  });
+</script>

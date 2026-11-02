@@ -1,11 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import InquiryForm from '../../components/InquiryForm.astro';
+import ProductGallery from '../../components/ProductGallery.astro';
+import { galleries, range, tcSrc, tcSrcset } from '../../data/topclass-images';
 
 const sauces = [
   {
     name: 'Red Chilli Sauce',
-    img: '/topclass/red-chilli-sauce.webp',
     desc: 'Classic heat-forward red chilli sauce. Versatile across cuisines — table use, cooking and HoReCa applications.',
     packs: ['200g', '630g', '1kg', '5kg', 'Sachets', '5L'],
     color: 'from-red-50 to-rose-50',
@@ -13,7 +14,6 @@ const sauces = [
   },
   {
     name: 'Green Chilli Sauce',
-    img: '/topclass/green-chilli-sauce.webp',
     desc: 'Fresh, tangy green chilli sauce. Light heat with bright flavour. Popular for snacks and dips.',
     packs: ['200g', '630g', '1kg', '5kg', 'Sachets', '5L'],
     color: 'from-green-50 to-lime-50',
@@ -21,7 +21,6 @@ const sauces = [
   },
   {
     name: 'Soya Sauce',
-    img: '/topclass/soya-sauce.webp',
     desc: 'Rich, umami-forward soya sauce. Ideal for Asian-style cooking, marinades and stir-fry applications.',
     packs: ['200g', '630g', '1kg', '5kg', 'Sachets', '5L'],
     color: 'from-stone-50 to-amber-50',
@@ -29,7 +28,6 @@ const sauces = [
   },
   {
     name: 'Vinegar',
-    img: '/topclass/vinegar.webp',
     desc: 'Clean, sharp distilled vinegar. Multipurpose condiment and preservation ingredient.',
     packs: ['200g', '630g', '1kg', '5kg', 'Sachets', '5L'],
     color: 'from-amber-50 to-yellow-50',
@@ -37,7 +35,6 @@ const sauces = [
   },
   {
     name: 'Tomato Ketchup',
-    img: '/topclass/tomato-ketchup.webp',
     desc: 'Smooth, sweet-tangy tomato ketchup. Bulk-pack option for QSR, HoReCa and food service chains.',
     packs: ['200g', '630g', '1kg', '5kg', 'Sachets', '5L'],
     color: 'from-orange-50 to-red-50',
@@ -45,7 +42,6 @@ const sauces = [
   },
   {
     name: 'Schezwan Chutney',
-    img: '/topclass/schezwan-chutney.webp',
     desc: 'Spicy, aromatic Schezwan-style chutney. Premium heat with complex flavour depth.',
     packs: ['200g', '630g', '1kg', '5kg', 'Sachets', '5L'],
     color: 'from-rose-50 to-orange-50',
@@ -64,10 +60,13 @@ const packSizes = ['200g Retail', '630g Jar', '1kg Pack', '5kg Catering', 'Sache
   <section class="relative min-h-[50vh] flex items-center overflow-hidden bg-brand-dark">
     <div class="absolute inset-0">
       <img
-        src="/topclass/sauce-range.webp"
+        src={tcSrc(range.sauces)}
+        srcset={tcSrcset(range.sauces)}
+        sizes="100vw"
         alt="Top Class sauces range"
         class="w-full h-full object-cover opacity-25"
         loading="eager"
+        fetchpriority="high"
       />
       <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/80 to-transparent"></div>
     </div>
@@ -124,9 +123,7 @@ const packSizes = ['200g Retail', '630g Jar', '1kg Pack', '5kg Catering', 'Sache
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {sauces.map(sauce => (
           <div class={`bg-gradient-to-br ${sauce.color} border ${sauce.border} rounded-2xl overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all`}>
-            <div class="aspect-[4/3] overflow-hidden bg-stone-100">
-              <img src={sauce.img} alt={`Top Class ${sauce.name}`} class="w-full h-full object-cover" loading="lazy" width="1000" height="750" />
-            </div>
+            <ProductGallery images={galleries[sauce.name]} alt={`Top Class ${sauce.name}`} />
             <div class="p-7">
             <h3 class="font-display font-bold text-brand-dark text-xl mb-2">{sauce.name}</h3>
             <p class="font-body text-brand-muted text-sm leading-relaxed mb-4">{sauce.desc}</p>

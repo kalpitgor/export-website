@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import CertBadge from '../../components/CertBadge.astro';
+import { range, tcSmall, tcSrc, tcSrcset } from '../../data/topclass-images';
 
 const sauces = [
   { name: 'Red Chilli Sauce', packs: ['200g', '630g', '1kg', '5kg', 'Sachets', '5L'] },
@@ -33,10 +34,13 @@ const masalas = [
   <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 bg-brand-dark">
       <img
-        src="/topclass/product-range.webp"
+        src={tcSrc(range.hero)}
+        srcset={tcSrcset(range.hero)}
+        sizes="100vw"
         alt="Top Class bold flavors"
         class="w-full h-full object-cover opacity-40"
         loading="eager"
+        fetchpriority="high"
       />
       <div class="absolute inset-0 bg-gradient-to-b from-brand-dark/50 via-brand-dark/30 to-brand-dark/80"></div>
     </div>
@@ -82,14 +86,14 @@ const masalas = [
         <ProductCard
           category="Top Class"
           title="Sauces & Condiments"
-          image="/topclass/sauce-range.webp"
+          image={tcSmall(range.sauceBottles)}
           description="Signature taste solutions. Multiple pack sizes from sachets to 5L. Red, Green, Soya, Vinegar, Ketchup & Schezwan."
           href="/topclass/sauces"
         />
         <ProductCard
           category="Top Class"
           title="Pastes"
-          image="/topclass/garlic-paste.webp"
+          image={tcSmall(range.pastes)}
           description="Kitchen-ready, time-saving garlic and ginger garlic pastes. Available in 200g to 5kg packs."
           href="/topclass/pastes"
         />
