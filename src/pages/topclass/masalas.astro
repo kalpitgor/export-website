@@ -5,6 +5,7 @@ import InquiryForm from '../../components/InquiryForm.astro';
 const masalas = [
   {
     name: 'Peri Peri Masala',
+    img: '/topclass/masala-peri-peri.webp',
     desc: 'Inspired by the iconic peri peri flavour. Bold heat with layers of garlic, lemon and spice notes. Ideal for seasoning fries, grilled chicken and snacks.',
     heat: 4,
     uses: ['Fries & Chips', 'Grilled Meats', 'Popcorn', 'Snack Coatings'],
@@ -13,6 +14,7 @@ const masalas = [
   },
   {
     name: 'Chat Masala',
+    img: '/topclass/masala-chat.webp',
     desc: 'The iconic tangy-spicy seasoning blend of Indian street food culture. Amchur, cumin, black salt and more — perfect for chaats, fruits and snacks.',
     heat: 2,
     uses: ['Chaat & Street Food', 'Fruits & Salads', 'Roasted Snacks', 'Beverages'],
@@ -29,6 +31,7 @@ const masalas = [
   },
   {
     name: 'Fryums Masala',
+    img: '/topclass/masala-fryums.webp',
     desc: 'Custom-blended seasoning specifically developed for fryums and fried snack coatings. Sticks evenly, delivers consistent flavour across large batches.',
     heat: 2,
     uses: ['Fryums', 'Fried Snacks', 'Papad Coatings', 'Namkeen Blends'],
@@ -85,7 +88,13 @@ const masalas = [
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {masalas.map(m => (
-          <div class={`bg-gradient-to-br ${m.color} border ${m.border} rounded-3xl p-8 hover:shadow-lg transition-all`}>
+          <div class={`bg-gradient-to-br ${m.color} border ${m.border} rounded-3xl overflow-hidden hover:shadow-lg transition-all`}>
+            {m.img && (
+              <div class="aspect-[16/9] overflow-hidden bg-stone-100">
+                <img src={m.img} alt={m.name} class="w-full h-full object-cover" loading="lazy" />
+              </div>
+            )}
+            <div class="p-8">
             <div class="flex items-start justify-between gap-4 mb-3">
               <h3 class="font-display font-bold text-brand-dark text-xl">{m.name}</h3>
               <div class="flex items-center gap-1 shrink-0" title={`Heat level: ${m.heat}/5`}>
@@ -102,6 +111,7 @@ const masalas = [
                   <span class="bg-white/70 text-brand-dark text-xs font-body font-medium px-3 py-1.5 rounded-full border border-white shadow-sm">{use}</span>
                 ))}
               </div>
+            </div>
             </div>
           </div>
         ))}
