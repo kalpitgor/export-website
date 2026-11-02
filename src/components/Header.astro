@@ -172,7 +172,7 @@ const topclassNav = [
     lines[2].classList.toggle('!w-6',         menuOpen);
   });
 
-  function switchBrand(brand: string) {
+  function switchBrand(brand: string, fromClick = false) {
     const isCitizen = brand === 'citizen';
 
     // ── Logo color toggle ──
@@ -224,10 +224,10 @@ const topclassNav = [
       document.getElementById('brand-citizen')?.classList.toggle('hidden', !isCitizen);
       document.getElementById('brand-topclass')?.classList.toggle('hidden', isCitizen);
     } else {
-      // On sub-pages, logo click navigates to brand home
-      // (only navigate if switching to a different brand)
-      const current = sessionStorage.getItem('activeBrand') || 'citizen';
-      if (brand !== current) {
+      // On sub-pages, a logo click navigates to that brand's home.
+      // Page load must never navigate, or direct links to sub-pages bounce.
+      const current = window.location.pathname.startsWith('/topclass') ? 'topclass' : 'citizen';
+      if (fromClick && brand !== current) {
         window.location.href = isCitizen ? '/citizen' : '/topclass';
       }
     }
@@ -237,7 +237,7 @@ const topclassNav = [
 
   // ── Wire up all brand-toggle buttons ──
   document.querySelectorAll<HTMLElement>('[data-brand]').forEach(el => {
-    el.addEventListener('click', () => switchBrand(el.dataset.brand!));
+    el.addEventListener('click', () => switchBrand(el.dataset.brand!, true));
   });
 
   // ── Init on load ──
