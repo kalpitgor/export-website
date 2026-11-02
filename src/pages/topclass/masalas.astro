@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import InquiryForm from '../../components/InquiryForm.astro';
+import { masalaImages } from '../../data/citizen-images';
 
 const masalas = [
   {
@@ -85,7 +86,13 @@ const masalas = [
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {masalas.map(m => (
-          <div class={`bg-gradient-to-br ${m.color} border ${m.border} rounded-3xl p-8 hover:shadow-lg transition-all`}>
+          <div class={`bg-gradient-to-br ${m.color} border ${m.border} rounded-3xl overflow-hidden hover:shadow-lg transition-all`}>
+            {masalaImages[m.name] && (
+              <div class="aspect-[3/2] overflow-hidden bg-white">
+                <img src={masalaImages[m.name]} alt={`Top Class ${m.name}`} class="w-full h-full object-cover" loading="lazy" decoding="async" />
+              </div>
+            )}
+            <div class="p-8">
             <div class="flex items-start justify-between gap-4 mb-3">
               <h3 class="font-display font-bold text-brand-dark text-xl">{m.name}</h3>
               <div class="flex items-center gap-1 shrink-0" title={`Heat level: ${m.heat}/5`}>
@@ -102,6 +109,7 @@ const masalas = [
                   <span class="bg-white/70 text-brand-dark text-xs font-body font-medium px-3 py-1.5 rounded-full border border-white shadow-sm">{use}</span>
                 ))}
               </div>
+            </div>
             </div>
           </div>
         ))}

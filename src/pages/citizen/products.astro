@@ -2,47 +2,52 @@
 import Layout from '../../layouts/Layout.astro';
 import InquiryForm from '../../components/InquiryForm.astro';
 import CertBadge from '../../components/CertBadge.astro';
+import { friedOnions, powderImages } from '../../data/citizen-images';
 
 const onions = [
   {
     section: 'White Onion',
     items: [
-      { name: 'Flakes',    img: '/white_onion_flakes.webp' },
-      { name: 'Chopped',   img: '/White_onion_chopped.webp' },
-      { name: 'Minced',    img: '/White_onion_minced.webp' },
-      { name: 'Granules',  img: '/White_onion_granules.webp' },
-      { name: 'Powder',    img: '/White_powder.webp' },
+      { name: 'Flakes',    img: '/citizen/onions/white-onion-flakes-640.webp' },
+      { name: 'Chopped',   img: '/citizen/onions/white-onion-chopped-640.webp' },
+      { name: 'Minced',    img: '/citizen/onions/white-onion-minced-640.webp' },
+      { name: 'Granules',  img: '/citizen/onions/white-onion-granules-640.webp' },
+      { name: 'Powder',    img: '/citizen/onions/white-onion-powder-640.webp' },
     ],
   },
   {
     section: 'Red Onion',
     items: [
-      { name: 'Flakes',    img: '/Red_onion_flakes.webp' },
-      { name: 'Chopped',   img: '/Red_onion_chopped.webp' },
-      { name: 'Minced',    img: '/Red_onion_minced.webp' },
-      { name: 'Granules',  img: '/Red_onion_granules.webp' },
-      { name: 'Powder',    img: '/Red_onion_powder.webp' },
+      { name: 'Flakes',    img: '/citizen/onions/red-onion-flakes-640.webp' },
+      { name: 'Chopped',   img: '/citizen/onions/red-onion-chopped-640.webp' },
+      { name: 'Minced',    img: '/citizen/onions/red-onion-minced-640.webp' },
+      { name: 'Granules',  img: '/citizen/onions/red-onion-granules-640.webp' },
+      { name: 'Powder',    img: '/citizen/onions/red-onion-powder-640.webp' },
     ],
   },
   {
     section: 'Pink Onion',
     items: [
-      { name: 'Flakes',    img: '/Dehydrated_pink_onion_flakes.webp' },
-      { name: 'Chopped',   img: '/Pink_onion_chopped.webp' },
-      { name: 'Minced',    img: '/Pink_onion_minced.webp' },
-      { name: 'Granules',  img: '/Pink_onion_granules.webp' },
-      { name: 'Powder',    img: '/Pink_onion_powder.webp' },
+      { name: 'Flakes',    img: '/citizen/onions/pink-onion-flakes-640.webp' },
+      { name: 'Chopped',   img: '/citizen/onions/pink-onion-chopped-640.webp' },
+      { name: 'Minced',    img: '/citizen/onions/pink-onion-minced-640.webp' },
+      { name: 'Granules',  img: '/citizen/onions/pink-onion-granules-640.webp' },
+      { name: 'Powder',    img: '/citizen/onions/pink-onion-powder-640.webp' },
     ],
+  },
+  {
+    section: 'Fried Onion',
+    items: friedOnions,
   },
 ];
 
 const garlic = [
-  { name: 'Whole / Dehydrated', img: '/Dehydrated_garlic.webp' },
-  { name: 'Chopped',            img: '/Dehydrated_Garlic_chopped.webp' },
-  { name: 'Flakes',             img: '/Dehydrated_garlic_flakes.webp' },
-  { name: 'Minced',             img: '/Dehydrated_garlic_minced.webp' },
-  { name: 'Granules',           img: '/Garlic_granules.webp' },
-  { name: 'Powder',             img: '/garlic_powder.webp' },
+  { name: 'Whole / Dehydrated', img: '/citizen/garlic/garlic-dehydrated.webp' },
+  { name: 'Chopped',            img: '/citizen/garlic/garlic-chopped.webp' },
+  { name: 'Flakes',             img: '/citizen/garlic/garlic-flakes.webp' },
+  { name: 'Minced',             img: '/citizen/garlic/garlic-minced.webp' },
+  { name: 'Granules',           img: '/citizen/garlic/garlic-granules.webp' },
+  { name: 'Powder',             img: '/citizen/garlic/garlic-powder.webp' },
 ];
 
 const powders = [
@@ -50,6 +55,7 @@ const powders = [
   'Cabbage Flakes', 'Cabbage Powder', 'Spinach Powder', 'Curry Leaves',
   'Curry Powder', 'Tamarind Powder', 'Green Chilli Powder', 'Amchur Powder',
   'Ginger Powder', 'Beet Root Powder', 'Red Chilli Powder', 'Potato Powder',
+  'Red Chilli Flakes', 'Tomato Powder',
 ];
 
 const specs = [
@@ -214,13 +220,21 @@ const specs = [
 
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {powders.map(item => (
-          <div class="bg-white border border-stone-100 rounded-2xl p-5 text-center hover:shadow-md hover:-translate-y-0.5 hover:border-brand-primary/30 transition-all">
-            <div class="w-10 h-10 bg-amber-50 rounded-xl mx-auto mb-3 flex items-center justify-center">
-              <svg class="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375"/>
-              </svg>
+          <div class="bg-white border border-stone-100 rounded-2xl overflow-hidden text-center hover:shadow-md hover:-translate-y-0.5 hover:border-brand-primary/30 transition-all">
+            {powderImages[item] ? (
+              <div class="aspect-square overflow-hidden bg-stone-50">
+                <img src={powderImages[item]} alt={item} class="w-full h-full object-cover" loading="lazy" decoding="async" />
+              </div>
+            ) : (
+              <div class="aspect-square bg-amber-50 flex items-center justify-center">
+                <svg class="w-8 h-8 text-brand-primary/40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375"/>
+                </svg>
+              </div>
+            )}
+            <div class="p-3">
+              <span class="font-body font-semibold text-brand-dark text-sm">{item}</span>
             </div>
-            <span class="font-body font-semibold text-brand-dark text-sm">{item}</span>
           </div>
         ))}
       </div>
