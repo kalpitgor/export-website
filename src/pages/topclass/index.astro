@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import CertBadge from '../../components/CertBadge.astro';
 import { range, tcSmall, tcSrc, tcSrcset } from '../../data/topclass-images';
+import { cSmall } from '../../data/citizen-images';
 
 const sauces = [
   { name: 'Red Chilli Sauce', packs: ['200g', '630g', '1kg', '5kg', 'Sachets', '5L'] },
@@ -100,6 +101,7 @@ const masalas = [
         <ProductCard
           category="Top Class"
           title="Masalas & Seasonings"
+          image={cSmall('masalas/peri-peri-masala')}
           description="Snack-grade seasoning blends — Peri Peri, Chat Masala, Kurkure & Fryums Masala."
           href="/topclass/masalas"
         />
